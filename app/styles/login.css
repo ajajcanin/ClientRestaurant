@@ -1,0 +1,69 @@
+.gray-background{
+  width: 35%;
+  min-width: 400px;
+  font-family: "San Francisco";
+  min-height: 100vh;
+  height: 100%;
+  margin-top: 174px;
+}
+.form{
+  padding-bottom: 50px;
+}
+.div-fields{
+  margin-top: 10px;
+}
+.fields{
+  border: 1px solid #e1e1e1;
+  border-radius: 2px;
+  height: 53px;
+  padding-left: 15px;
+  font-size: 16px;
+  width:100%;
+}
+.div-btn-login{
+  margin-top: 40px;
+}
+.btn-login{
+  background-color: #fd6f60;
+  color: #fff;
+  border-radius:3px;
+  height: 53px;
+  font-size: 18px;
+  font: -apple-system-body;
+}
+.login-text-div{
+  font-size: 24px;
+  color: #131D24;
+  padding-left: 0px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.register-link-div{
+  padding-right: 0px;
+}
+.register-link, .register-link:hover, .register-link:visited{
+  font-size: 18px;
+  color: #fd6f60;
+  font-weight: bold;
+}
+
+.error-div{
+  background-color: #fce4e4;
+  border: 1px solid #fcc2c3;
+  color: #cc0033;
+  font: -apple-system-body;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 45px;
+  text-shadow: 1px 1px rgba(255, 250, 250, .3);
+  text-align: center;
+  height : 50px;
+  margin-bottom: 10px;
+}
+.validation-form span{
+  color: #cc0033;
+  font-weight: bold;
+}
+.validation-form .ng-invalid.ng-touched{
+  border: 1px solid #cc0033;
+}

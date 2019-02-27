@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
+</head>
+<body >
+<div class="gray-background row center-block container" ng-controller="RegisterCtrl">
+  <form name="form" ng-submit="registerFun()" role="form" class="validation-form">
+
+    <div class="error-div" ng-if="error">{{error}}</div>
+    <div class="col-md-6 login-text-div">Create Account</div>
+    <div class="col-md-6 text-right register-link-div"> <a href="#/login" class="register-link">Login</a></div>
+
+    <!--first name-->
+    <div class="div-fields">
+      <input type="text" name="first" class="fields"
+               id="first" placeholder="First Name" ng-model="info.first" required />
+      <span ng-show="form.first.$touched
+            && form.first.$invalid">First Name is required</span>
+    </div>
+
+    <!--last name-->
+    <div class="div-fields">
+      <input type="text" name="last" class="fields"
+             name="last" placeholder="Last Name" ng-model="info.last"  required />
+      <span ng-show="form.last.$touched
+            && form.last.$invalid">Last Name is required</span>
+    </div>
+
+
+    <!--email-->
+    <div class="div-fields">
+      <input type="email" name="email" class="fields"
+             id="email" placeholder="Email" ng-model="info.email" required />
+      <span ng-show="form.email.$touched
+            && form.email.$invalid">Email is not valid</span>
+    </div>
+
+    <!--Phone Number-->
+    <div class="div-fields">
+      <input type="text" name="phone" class="fields"
+             id="phone" placeholder="Phone Number" ng-model="info.phone" required />
+      <span ng-show="form.phone.$touched
+            && form.phone.$invalid">Phone Number is required</span>
+    </div>
+
+
+
+    <!--country & city -->
+    <div class="div-fields row">
+      <div class="col-md-7">
+        <select name="country" class="fields"
+                ng-model="info.country" ng-options="item.id as item.country disable when item.disabled for item in countries"
+                ng-change="updateCities()"required>
+        </select>
+        <span ng-show="form.country.$touched
+            && form.country.$invalid">Country is required</span>
+      </div>
+
+      <div class="col-md-5">
+        <select type="text" name="city" class="fields"
+                ng-model="info.city" ng-options="item as item.city disable when item.disabled for item in cities" required>
+        </select>
+        <span ng-show="form.city.$touched
+            && form.city.$invalid">City is required</span>
+      </div>
+    </div>
+    <!--pass-->
+
+    <div class="div-fields">
+      <input type="password" class="fields"
+             name="pass" id="pass" placeholder="Password" ng-model="info.pass" required />
+      <span ng-show="form.pass.$touched
+            && form.pass.$invalid">Password is required</span>
+    </div>
+
+
+    <!--confirm pass-->
+
+    <div class="div-fields">
+      <input type="password" class="fields"
+             name="passConf" id="passConf" placeholder="Confirm Password" ng-model="info.passConf" required />
+      <span ng-show="form.passConf.$touched
+            && info.passConf!=info.pass" class="password-match">Your password and confirmation password do not match.</span>
+    </div>
+
+
+    <div class="div-btn-login">
+      <input type="submit" class="btn-login"
+              ng-disabled="form.$invalid || info.dataLoading" value="Create Account">
+    </div>
+  </form>
+</div>
+</body>
+</html>

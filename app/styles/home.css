@@ -1,0 +1,203 @@
+@font-face {
+  font-family: "San Francisco";
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
+}
+body{
+  font-family: "San Francisco";
+  color: #131D24;
+}
+.image-background{
+  background: linear-gradient( rgba(0, 0, 15, 0.7), rgba(0, 0, 15, 0.7) ), url('../images/homeFront.jpg') no-repeat center center;
+  display: table;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width:100%;
+  height:680px;
+}
+.content{
+  padding-top:232px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+p:first-child{
+  font-size: 48px;
+}
+p:nth-child(2){
+  font-weight: bold;
+  font-size: 20px;
+}
+.form-search{
+  width: 80%;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  font: -apple-system-body;
+  font-size: 18px;
+  color: black;
+  padding-bottom: 50px;
+}
+input{
+  border: none;
+  height: 56px;
+  width: 100%;
+  padding: 0;
+}
+.input-holder{
+  padding-left: 0;
+  padding-right: 0;
+}
+#search{
+  border-radius:3px 0 0 3px;
+  padding-left: 50px;
+}
+input[type="submit"]{
+  background-color: #fd6f60;
+  color: #fff;
+  border-radius:0 3px 3px 0;
+}
+
+
+.img-rand{
+  object-fit:cover;
+  width: 300px;
+  height: 260px;
+}
+.random-restaurant-content{
+  margin: 0 auto;
+  display: table;
+}
+.header-home{
+  font-size:30px;
+  margin-top:73px;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+.random-restaurant-name{
+  font-size: 24px;
+  font-family: "San Francisco";
+  color: #131D24;
+  font-weight: 900;
+  margin-top: 15px;
+}
+/************
+*star-rating*
+ ***********/
+@keyframes rating-stars-blink {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+rating-stars .mutable {
+  cursor: pointer;
+}
+rating-stars .hover .star {
+  position: relative;
+}
+rating-stars .hover .star:hover::after {
+  animation-name: rating-stars-blink;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.5, 0, 0.2, 1);
+}
+rating-stars .hover .star::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fd6f60;
+  content: "star";
+  opacity: 0;
+}
+rating-stars .ratings-right, rating-stars .ratings-left {
+  vertical-align: middle;
+  color: #131d24;
+}
+rating-stars .ratings-right {
+  margin-left: 5px;
+}
+rating-stars .ratings-left {
+  margin-right: 5px;
+}
+rating-stars .star {
+  color: #fd6f60;
+  transition: color 0.2s cubic-bezier(0.5, 0, 0.2, 1);
+  vertical-align: middle;
+}
+rating-stars .star::before {
+  content: "star_border";
+}
+rating-stars .star.on, rating-stars .star.on-half {
+  color: #fd6f60;
+}
+rating-stars .star.on.my, rating-stars .star.on-half.my {
+  color: #131d24;
+}
+rating-stars .star.on::before {
+  content: "star";
+}
+rating-stars .star.on-half::before {
+  content: "star_half";
+}
+
+/********
+*noodles*
+********/
+.div-noodles{
+
+  display: table;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width:100%;
+  height:584px;
+  background: linear-gradient( rgba(0, 0, 15, 0.7), rgba(0, 0, 15, 0.7) ), url('../images/noodles.jpg') no-repeat center center;
+}
+.noodles-title{
+  font-family: "San Francisco";
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 60px;
+}
+.random-restaurant-content [type="submit"]{
+  background-color: #F9F9F9;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  height: 36px;
+  color: #131D24;
+  font-size: 18px;
+  font: -apple-system-body;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+.popular-locations-title{
+  margin-top: 80px;
+  margin-bottom: 74px;
+  font-family: "San Francisco";
+  font-size: 30px;
+  color: #131D24;
+  font-weight: bold;
+}
+.loc-city-name{
+  font-family: "San Francisco";
+  font-size: 20px;
+  color: #131D24;
+}
+.loc-restaurant-number{
+  font: -apple-system-body;
+  font-size: 18px;
+  color: #131D24;
+  opacity: 0.4;
+}
+.location-content{
+  display: table;
+  margin: 0 auto 25px;
+}

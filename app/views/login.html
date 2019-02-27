@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body >
+<div class="gray-background row center-block">
+  <form name="form" ng-submit="loginFun()" role="form" class="validation-form">
+    <div class="error-div" ng-if="error">{{error}}</div>
+    <div class="col-md-6 login-text-div">Login</div>
+    <div class="col-md-6 text-right register-link-div"> <a ng-href="#/register" class="register-link">Create </br> Account</a></div>
+
+    <div class="div-fields">
+      <input type="email" name="email" class="fields"
+               id="email" placeholder="Email" ng-model="credentials.email" required />
+        <span ng-show="form.email.$touched
+            && form.email.$invalid">Email is not valid</span>
+    </div>
+    <div class="div-fields">
+      <input type="password" class="fields"
+             name="pass" id="pass" placeholder="Password" ng-model="credentials.pass" required />
+      <span ng-show="form.pass.$touched
+            && form.pass.$invalid">Password is required</span>
+    </div>
+    <div class="div-btn-login">
+      <input type="submit" class="btn-login"
+              ng-disabled="form.$invalid || credentials.dataLoading" value="Login">
+    </div>
+  </form>
+</div>
+</body>
+</html>
