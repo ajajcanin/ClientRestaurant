@@ -1,0 +1,35 @@
+.navbar-custom{
+  background-color: transparent;
+  position: absolute;
+  border:none;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  color:#fd6f60;
+}
+
+.navbar-default .navbar-collapse{
+  border-color: #fd6f60;
+}
+.navbar-default .navbar-brand{
+  color: #7c7c7c;
+  font-size: 20px;
+  line-height: 23px;
+}
+.navbar-default .navbar-nav > li > a{
+  color: #7c7c7c;
+  font-size: 16px;
+  line-height: 18px;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+  color: #fd6f60;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fd6f60;
+}
+@media(min-width: 768px){
+  .colapse-custom{
+    float:right;
+  }
+}

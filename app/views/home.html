@@ -1,0 +1,46 @@
+<!-- Search restourants -->
+<div class="image-background text-center">
+  <div class="content">
+    <p>Make a free reservation</p>
+    <p>Choose your table from n restaurants near you</p>
+      <form class="form-horizontal form-search" ng-controller="HomeCtrl" ng-submit="search()">
+        <div class="col-sm-4 input-holder"> <input ng-model="reservation.nameRes" type="text" placeholder="Location, Restaurant or Cousine"></div>
+        <div class="col-sm-2 input-holder"><input ng-model="reservation.numGuests" type="number" placeholder="Guests"></div>
+        <div class="col-sm-2 input-holder"><input ng-model="reservation.date" type="date"></div>
+        <div class="col-sm-2 input-holder"><input ng-model="reservation.time" type="time"></div>
+        <div class="col-sm-2 input-holder"><input type="submit" value="Find a table"></div>
+      </form>
+  </div>
+</div>
+
+
+<!-- Random restourants -->
+<div class="container random-restaurants-container" ng-controller="RestCtrl as vm">
+  <div class="header-home text-center ">Popular for Lunch Today</div>
+  <div class="col-md-4 col-sm-6 col-xs-12 text-margin-random-restaurant" ng-repeat="item in restaurants">
+    <div class="random-restaurant-content">
+      <img class="img-rand img-responsive" ng-src="{{item.avatar}}">
+      <div class = "random-restaurant-name">{{item.name}}</div><!--item.name/rate/price-->
+      <div class = "random-restaurant-rate" ng-controller="myCtrl">
+        <rating-stars ratings="vm.ratings" average-rating="vm.averageRating[$index]" ratings-position="{{vm.ratingsPosition}}">
+        </rating-stars>
+      </div>
+      <input type="submit" value="Reserve Now">
+    </div>
+      <!--cousines-->
+  </div>
+</div>
+<!-- Specials / hardcoded -->
+<div class="div-noodles">
+  <div class="noodles-title">Specials</div>
+</div>
+<!-- Locations / hardcoded -->
+<div class="container locations" ng-controller="LocationCtrl">
+  <div class ="text-center popular-locations-title">Popular locations</div>
+    <div  class="col-md-3 col-sm-4 col-xs-6 random-restaurant-content" ng-repeat="location in locations">
+      <div class="location-content">
+        <div class="loc-city-name">{{location.city}}</div>
+        <div class="loc-restaurant-number">{{location.restaurantNum}} restaurants</div>
+      </div>
+  </div>
+</div>
