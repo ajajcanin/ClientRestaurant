@@ -6,7 +6,7 @@ angular.module('restaurantclientApp')
       register: function(data){
         var req = {
           method:'POST',
-          url: 'http://localhost:8080/app/register',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/register',
           data: data,
           headers: {
             'Content-Type': 'application/json',

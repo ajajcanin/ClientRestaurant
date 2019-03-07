@@ -7,7 +7,7 @@ angular.module('restaurantclientApp')
       getRestaurants: function(data){
         var req = {
           method:'POST',
-          url: 'http://localhost:8080/app/search',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/search',
           data: data,
           headers: {
           }
@@ -17,7 +17,7 @@ angular.module('restaurantclientApp')
       getRandomRestaurants: function(){
         var req = {
           method:'GET',
-          url: 'http://localhost:8080/app/random',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/random',
           headers: {
             'Access-Control-Allow-Origin' : '*',
             'Access-Control-Allow-Methods' : '*',
@@ -29,7 +29,7 @@ angular.module('restaurantclientApp')
       getSearchedRestaurants: function(data){
         var req = {
           method:'POST',
-          url: 'http://localhost:8080/app/getRestaurantsByFilter',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/getRestaurantsByFilter',
           data: data,
           headers: {
             'Content-Type':'application/json'
@@ -40,7 +40,7 @@ angular.module('restaurantclientApp')
       rateRestaurant: function(data){
         var req = {
           method:'POST',
-          url: 'http://localhost:8080/app/insertComment',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/insertComment',
           data: data,
           headers: {
             'Content-Type':'application/json'
@@ -51,7 +51,7 @@ angular.module('restaurantclientApp')
       checkReservationAvailability: function(data){
         var req = {
           method:'POST',
-          url: 'http://localhost:8080/app/checkReservationAvailability',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/checkReservationAvailability',
           data: data,
           headers: {
             'Content-Type':'application/json'
@@ -62,7 +62,7 @@ angular.module('restaurantclientApp')
       makeReservation: function(data){
         var req = {
           method:'POST',
-          url: 'http://localhost:8080/app/makeReservation',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/makeReservation',
           data: data,
           headers: {
             'Content-Type':'application/json'
@@ -73,7 +73,7 @@ angular.module('restaurantclientApp')
       getExtraDetails: function(data){
         var req = {
           method:'POST',
-            url: 'http://localhost:8080/app/getExtraDetails',
+            url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/getExtraDetails',
           data: data,
           headers: {
             'Content-Type':'application/json'

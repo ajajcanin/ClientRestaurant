@@ -6,7 +6,7 @@ angular.module('restaurantclientApp')
       makeReservation: function(data){
         var req = {
           method:'POST',
-          url: 'http://localhost:8080/app/makeReservation',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/makeReservation',
           data: data,
           headers: {
             'Content-Type': 'application/json',

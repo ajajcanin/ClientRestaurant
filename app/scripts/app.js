@@ -31,7 +31,7 @@ app.config(function ($locationProvider) {
 app.config(function ($httpProvider, jwtOptionsProvider){
   $httpProvider.interceptors.push('jwtInterceptor');
   jwtOptionsProvider.config({
-    whiteListedDomains: ['http://localhost:8080/', 'localhost'],
+    whiteListedDomains: ['http://localhost:8080/', 'localhost', 'https://ajdinsrestaurantsapp.herokuapp.com/'],
     tokenGetter: ['options', function(options){
       if(options && options.url.substr(options.url.length-5) === '.html') {return null;}
       return window.localStorage.getItem('token');
