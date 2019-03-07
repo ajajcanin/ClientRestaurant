@@ -1,0 +1,211 @@
+.content-profile{
+  height: 340px;
+  background-color: #131D24;
+}
+
+
+.profile-image{
+  object-fit:cover;
+  width:210px;
+  height:182px;
+  border: 5px solid #fff;
+  border-radius: 7px;
+  margin-bottom: 30px;
+}
+.profile-container{
+  transform: translateY(-120px);
+}
+.restaurant-info{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width:auto;
+  display: inline-flex;
+  color: #fd6f60;
+}
+.restaurant-info li{
+  display: inline;
+}
+.restaurant-info li a{
+  display: block;
+}
+.profile-main{
+  padding-top: 25px;
+}
+#header-name p{
+  margin-bottom: 10px;
+  font-family: "San Francisco";
+  font-size: 30px;
+  color: #fff;
+  display: inline-block;
+}
+#header-name{
+}
+.review-btn{
+  float: right;
+}
+.review-btn [type="submit"]{
+  width: 160px;
+  height: 36px;
+  background: #ffffff;
+  color: #fd6f60;
+  border-radius: 3px;
+}
+.profile-reservation{
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.10);
+  border-radius: 2px;
+  min-height: 180px;
+  margin-top: 98px;
+  overflow: auto;
+}
+.profile-reservation:nth-child(4) {
+  height: auto;
+}
+
+.div-map{
+  height: 667px;
+
+}
+.btn{
+  border: 1px solid #131d24;
+}
+.btn span{
+  font: -apple-system-body;
+  font-size: 16px;
+  color: #131D24;
+  vertical-align: 7px;
+  font-weight: bold;
+}
+
+.profile-filter-reservation{
+  width : 90%;
+}
+.profile-filter-reservation .row{
+  margin-top: 27px;
+}
+
+.profile-filter-reservation p, .div-map h1{
+  font-family: "San Francisco";
+  font-size: 20px;
+  color: rgba(19,29,36,0.4);
+  margin-top: 20px;
+}
+
+.map-holder{
+  width: auto;
+  height: 250px;
+  margin-top: 24px;
+  margin-bottom: 60px;
+}
+
+.div-map h2{
+  font: -apple-system-body;
+  font-size: 18px;
+  color: rgba(19,29,36,0.4);
+  margin-bottom: 17px;
+}
+.div-map p{
+  font: -apple-system-body;
+  font-size: 18px;
+  color: #1a1a1a;
+  letter-spacing: 0;
+}
+.modal-review-input{
+  height: 300px;
+}
+.search{
+  position:absolute;
+  transform: translateY(16px);
+  color: #757575;
+}
+.guests-div input{
+  padding-left: 40px;
+}
+.modal-header{
+  font-family: "San Francisco";
+  font-size: 24px;
+  color: #131D24;
+  text-align: center;
+}
+.modal-stars{
+  display: table;
+  margin: 5px auto 0;
+}
+.modal-review-input, #rateRestaurant\.html [type='submit']{
+  width: 90%;
+  margin: auto;
+}
+textarea{
+  display: table;
+  resize: none;
+  height: 233px;
+  width: 80%;
+  margin: 20px auto 0;
+  border: 1px solid #e1e1e1;
+  border-radius: 2px;
+}
+.modal-dialog {
+  border-radius: 2px;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.10);
+}
+.tabbable{
+  display: inline-block;
+}
+.profile-reservation .nav-tabs{
+  margin-left: 77px;
+}
+.profile-reservation h3{
+  font-family: "San Francisco";
+  font-size: 20px;
+  color: rgba(19,29,36,0.4);
+  transform: translateY(41px);
+}
+.profile-reservation .fade{
+  height: 50px;
+  bottom: 30px;
+  background-image: linear-gradient(-1deg, #ffffff 22%, rgba(255,255,255,0.0));
+  border-radius: 2px;
+}
+.restaurant-content{
+  width: 90%;
+  display: table;
+  margin: auto auto 20px;
+  max-height: 100px;
+
+}
+.collapsing-part{
+  margin-top: 100px;
+}
+.food-type-restaurant{
+  color: #ffffff;
+  opacity: 0.4;
+  font: -apple-system-body;
+  font-size: 16px;
+  margin-left: 16px;
+}
+.availability-text{
+  font-size: 20px;
+}
+.collapsed-tables{
+  opacity: 0.5;
+}
+.collapsed-tables p{
+  font: -apple-system-body;
+  font-size: 14px;
+  display: inline-block;
+  color: #131D24;
+  letter-spacing: 0;
+  font-weight: normal;
+  transform: translateY(-5px);
+}
+.time-pick-table{
+  font: -apple-system-body;
+  font-size: 18px;
+  color: #131D24;
+}
+.reservation-btns{
+  width: 86px;
+  height: 34px;
+  margin-top: 10px;
+  margin-bottom: 42px;
+}

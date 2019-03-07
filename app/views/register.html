@@ -52,7 +52,7 @@
       <div class="col-md-7">
         <select name="country" class="fields"
                 ng-model="info.country" ng-options="item.id as item.country disable when item.disabled for item in countries"
-                ng-change="updateCities()"required>
+                ng-change="updateCities()" required>
         </select>
         <span ng-show="form.country.$touched
             && form.country.$invalid">Country is required</span>

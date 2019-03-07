@@ -10,18 +10,21 @@
  * Controller of the restaurantclientApp
  */
 angular.module('restaurantclientApp')
-  .controller('HomeCtrl', function ($scope, RestaurantService) {
+  .controller('HomeCtrl', function ($scope, RestaurantService, SharedContext, $location) {
     $scope.reservation = {
       nameRes: ''
     };
     $scope.search = function(){
       var place = {
         search : $scope.reservation.nameRes,
-        test : 'ttest1'
+        guests : $scope.reservation.numGuests,
+        date : $scope.reservation.date,
+        time : $scope.reservation.time
       };
-      RestaurantService.getRestaurants(place).then(function (res){
-        $scope.reservation = res;
-      });
+        SharedContext.removeData();
+        SharedContext.addData(place);
+        $location.path('/search/' + $scope.reservation.nameRes + '/guests/' + $scope.reservation.numGuests +
+        '/date/' + $scope.reservation.date + '/time/' + $scope.reservation.time);
     };
 
   })
@@ -33,11 +36,13 @@ angular.module('restaurantclientApp')
     console.log('00Test');
     RestaurantService.getRandomRestaurants().then(function(res){
       var json = res.data;
-      $scope.restaurants = json;
-      console.log(json.map(obj => obj.priceRange));
-
-      vm.ratings = 25;
-      vm.averageRating = json.map(obj => obj.priceRange);
+      $scope.restaurants = json.restaurants;
+      if(json.restaurants.votes){
+        vm.ratings = json.restaurants.votes;
+      } else {
+        vm.ratings = 0;
+      }
+      vm.averageRating = json.restaurants.map(obj => obj.marks);
       vm.ratingsPosition = 'right';
       vm.formData = {
         myRating: 2
@@ -54,9 +59,53 @@ angular.module('restaurantclientApp')
   })
 
 
-  .controller('myCtrl', function ($scope, SharedContext) {
-
-
+  .controller('fakeSpecialsCtrl', function ($scope) {
+    $scope.getSecondIndex = function(index) {
+      if (index - 6 >= 0) {
+        return index - 6;
+      } else {
+        return index;
+      }
+    };
+    $scope.$on('$routeChangeSuccess', function(){
+      $scope.meals = [];
+      $scope.meals.push( {
+        img: 'https://cdn.pixabay.com/photo/2016/02/19/11/30/pizza-1209748_960_720.jpg',
+        title: 'Best Pizza of 2016',
+        city: 'New York',
+        numRes: '43 restaurants'
+      });
+      $scope.meals.push( {
+        img: 'https://cdn.pixabay.com/photo/2017/01/20/19/12/chili-1995689_960_720.jpg',
+        title: 'Fresh & Spicy',
+        city: 'Philadelphia',
+        numRes: '16 restaurants'
+      });
+      $scope.meals.push({
+        img: 'https://cdn.pixabay.com/photo/2015/03/26/09/39/cupcakes-690040_960_720.jpg',
+        title: 'Cupcakes Flavor',
+        city: 'Chicago',
+        numRes: '11 restaurants'
+      });
+      $scope.meals.push({
+        img: 'https://cdn.pixabay.com/photo/2014/08/14/14/21/shish-kebab-417994_960_720.jpg',
+        title: 'Shish Kebab',
+        city: 'Madrid',
+        numRes: '26 restaurants'
+      });
+      $scope.meals.push( {
+        img: 'https://cdn.pixabay.com/photo/2017/01/16/17/45/pancake-1984716_960_720.jpg',
+        title: 'Pancakes',
+        city: 'Moscow',
+        numRes: '54 restaurants'
+      });
+      $scope.meals.push( {
+        img: 'https://cdn.pixabay.com/photo/2017/10/15/11/41/sushi-2853382_960_720.jpg',
+        title: 'Sushi',
+        city: 'Tokyo',
+        numRes: '35 restaurants'
+      });
+    });
   })
 
 
@@ -69,3 +118,4 @@ angular.module('restaurantclientApp')
       });
     });
   });
+

@@ -1,0 +1,42 @@
+.complete-reservation-btn{
+  display: table;
+  width: 300px;
+  height: 65px;
+  margin: 0 auto;
+}
+.complete-reservation-txt{
+  font-family: "San Francisco";
+  font-weight: bold;
+  font-size:36px;
+  color: #262626;
+  letter-spacing: 0;
+  text-align: center;
+  margin-top: 145px;
+  margin-bottom: 49px;
+}
+.move-col-below{
+  margin-top: 50px;
+}
+.details-reservation{
+  font-family: "San Francisco";
+  font-size: 20px;
+  color:rgba(19,29,36,0.40);
+}
+.details-titles{
+  opacity: 0.4;
+  font: -apple-system-body;
+  font-size: 14px;
+  color: #171717;
+  letter-spacing: 0;
+}
+.reservation-restaurant-name{
+  font-family: "San Francisco";
+  font-size: 20px;
+  color: #fd6f60;
+}
+.reservation-other{
+
+  font-family: "San Francisco";
+  font-size: 20px;
+  color: #131D24;
+}
