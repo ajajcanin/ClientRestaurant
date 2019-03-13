@@ -48,3 +48,18 @@ rating-stars .ratings-right, rating-stars .ratings-left{
   font-size: 16px;
   color: #131D24;
 }
+.dropdown-menu{
+  width: 350px;
+}
+.dropdown-menu>li{
+  margin-left: 20px;
+}
+.list-inline>li{
+  text-align: left;
+}
+.filter-snd-col{
+  margin-left: 40px;
+}
+.filter-cousines-col{
+  display: inline-block;
+}

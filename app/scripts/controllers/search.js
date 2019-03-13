@@ -1,6 +1,6 @@
 'use strict';
 angular.module('restaurantclientApp')
-  .controller('SearchCtrl', function ($scope, $window, $routeParams, RestaurantService, SharedContext) {
+  .controller('SearchCtrl', function ($scope, $window, $routeParams, RestaurantService, CousineService) {
     $scope.reservation = {
       nameRes : '',
       filter : ''
@@ -13,6 +13,10 @@ angular.module('restaurantclientApp')
     $scope.notEmpty = false;
     $scope.noFilter = false;
     $scope.currentPage = 1;
+    CousineService.getAllCousines().then(function(res){
+      var cousineData = res.data;
+      $scope.cousines = cousineData.map(obj => obj.name.toString());
+    });
     var json = {};
     var searchText = '';
     var vm = this;

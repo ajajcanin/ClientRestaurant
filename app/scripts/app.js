@@ -42,9 +42,9 @@ app
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'home'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -63,8 +63,8 @@ app
       })
       .when('/register', {
         templateUrl: 'views/register.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'register'
+        controller: 'RegisterCtrl',
+        controllerAs: 'register',
       })
       .when('/search/', {
         templateUrl: 'views/search.html',
@@ -108,8 +108,9 @@ app.run(function ($rootScope, $location, $http, $window, authManager){
         = $location.path().indexOf('/login') === -1;
       var loggedIn
         = $window.localStorage.getItem('token');
-      console.log('loggedIn:  = ' + loggedIn);
-      if (restrictedPage && !loggedIn) {
+      var reservationPage = $location.path().indexOf('/reservation')!==-1;
+      console.log('loggedIn:  = ' + loggedIn) ;
+      if (restrictedPage && !loggedIn && reservationPage) {
         $location.path('/login');
       }
     });
