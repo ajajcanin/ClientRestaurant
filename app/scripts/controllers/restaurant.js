@@ -2,7 +2,7 @@
 
 
 
-var ModalInstanceCtrl = function ($scope, $rootScope, SharedContext, RestaurantService){
+var ModalInstanceCtrl = function ($scope, $rootScope, SharedContext, RestaurantService, $window){
   $scope.rateRestaurant= function(){
     var data = {
       mark: $scope.formData.myRating,
@@ -10,7 +10,7 @@ var ModalInstanceCtrl = function ($scope, $rootScope, SharedContext, RestaurantS
       idRestaurant: SharedContext.getData().id,
       comment: $scope.comment
     };
-    RestaurantService.rateRestaurant(data).then(function(res){
+    RestaurantService.rateRestaurant(data, $window.localStorage.getItem('token')).then(function(res){
       console.log('unesen');
     });
   };

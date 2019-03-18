@@ -37,13 +37,14 @@ angular.module('restaurantclientApp')
         };
         return $http(req);
       },
-      rateRestaurant: function(data){
+      rateRestaurant: function(data, token){
         var req = {
           method:'POST',
           url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/insertComment',
           data: data,
           headers: {
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'Authorization':token
           }
         };
         return $http(req);
