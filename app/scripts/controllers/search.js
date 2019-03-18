@@ -5,6 +5,11 @@ angular.module('restaurantclientApp')
       nameRes : '',
       filter : ''
     };
+    $scope.filterCousine = "";
+    $scope.formData = {
+      priceRange : "",
+      myRating: ""
+    };
     $scope.params = {
       guests: '',
       date: '',
@@ -13,6 +18,13 @@ angular.module('restaurantclientApp')
     $scope.notEmpty = false;
     $scope.noFilter = false;
     $scope.currentPage = 1;
+    $('.dropdown-menu').click(function (e){
+      e.stopPropagation();
+    });
+    document.getElementById("filter-cousine").onmousedown = function(e){
+      e.preventDefault();
+      e.target.selected = !e.target.selected;
+    };
     CousineService.getAllCousines().then(function(res){
       var cousineData = res.data;
       $scope.cousines = cousineData.map(obj => obj.name.toString());
@@ -21,15 +33,26 @@ angular.module('restaurantclientApp')
     var searchText = '';
     var vm = this;
     $scope.search = function(){
+      var filteredCousines = [];
+      var opts = document.getElementById("filter-cousine").options;
+      for(var i = 0; i< opts.length; i++){
+        if(opts[i].selected){
+          filteredCousines.push(opts[i].value);
+        }
+      }
       var data = {
         itemsPerPage : 9,
         pageNumber : $scope.currentPage,
         searchText : $scope.reservation.nameRes,
-        filter : $scope.reservation.filter,
+        filterPrice : $scope.formData.priceRange,
+        filterRating : $scope.formData.myRating,
+        filterCousine : filteredCousines.toString(),
         date: $scope.params.date,
         time: $scope.params.time,
         guests: $scope.params.guests,
       };
+
+      console.log("filteri: "  + data.filterPrice + " " + data.filterRating + " " + data.filterCousine);
       RestaurantService.getSearchedRestaurants(data).then(function (res){
         json = res.data.restaurants;
         var numPages = res.data.numberOfRestaurantPages;

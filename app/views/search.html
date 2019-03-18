@@ -18,8 +18,8 @@
                       <h2>PRICE</h2>
                     </li>
                     <li>
-                      <rating-stars ng-model="formData.myRating" ng-change="ratingChange()"
-                                    ratings="0" average-rating="0" ratings-position=""></rating-stars>
+                      <rating-dollars ng-model="formData.priceRange" ng-change="priceChange()"
+                                    ratings="0" average-rating="0" ratings-position=""></rating-dollars>
                     </li>
                   </ul>
                 </li>
@@ -41,11 +41,7 @@
             <li class="divider"></li>
               <li class="filter-snd-col">
                 <h2>COUSINE</h2>
-                <ul class="list-unstyled">
-                  <li class="filter-cousines-col col-sm-6" ng-repeat="cousine in cousines">
-                    <h2>{{cousine.name}}</h2>
-                  </li>
-                </ul>
+                <select ng-model="filterCousine" id="filter-cousine" multiple ><option class="col-sm-6 options-cousine" ng-repeat="cousine in cousines" value="{{$index+1}}">{{cousine}}</option> </select>
               </li>
             </li>
           </ul>

@@ -110,6 +110,7 @@ app.run(function ($rootScope, $location, $http, $window, authManager){
         = $window.localStorage.getItem('token');
       var reservationPage = $location.path().indexOf('/reservation')!==-1;
       console.log('loggedIn:  = ' + loggedIn) ;
+      console.log('reservationPage' + reservationPage);
       if (restrictedPage && !loggedIn && reservationPage) {
         $location.path('/login');
       }

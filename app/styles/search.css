@@ -9,7 +9,7 @@
   display: table;
   margin: auto;
 }
-rating-stars .ratings-right, rating-stars .ratings-left{
+rating-stars .flipthis-wrapper>.ratings-right, rating-stars .flipthis-wrapper>.ratings-left{
   color: #fff
 }
 /*
@@ -62,4 +62,14 @@ rating-stars .ratings-right, rating-stars .ratings-left{
 }
 .filter-cousines-col{
   display: inline-block;
+}
+#filter-cousine{
+  border: none;
+  height: 100%;
+  overflow: hidden;
+}
+.options-cousine:checked{
+  color: #fd6f60;
+  -webkit-text-fill-color: #fd6f60;
+  background: linear-gradient(white, #fff);
 }
