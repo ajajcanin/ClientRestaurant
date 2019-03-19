@@ -5,7 +5,7 @@ angular.module('restaurantclientApp')
       require: '?ngModel',
       restrict: 'E',
       template: ''+
-        '<div ng-class="{ hover: vm.mutable, mutable: vm.mutable }">'+
+        '<div ng-class="{ hover: vm.mutable, mutable: vm.mutable }" class = "stars-div">'+
         '<span ng-if="vm.ratingsPosition === \'left\'" class="ratings-left">({{vm.ratings}})</span>'+
         [1, 2, 3, 4, 5].map(function(num) {
           return '<i ng-mouseover="vm.mouseover(' + num + ')" '+

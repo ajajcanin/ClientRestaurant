@@ -45,7 +45,7 @@ rating-dollars .dollar::before {
   content: "attach_money";
 }
 rating-dollars .dollar.on, rating-dollars .dollar.on-half {
-  color: rgba(19, 29, 36, 0.3);
+  color: #131d24;
 }
 rating-dollars .dollar.on.my, rating-dollars .dollar.on-half.my {
   color: #131d24;

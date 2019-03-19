@@ -32,6 +32,7 @@ angular.module('restaurantclientApp')
     var json = {};
     var searchText = '';
     var vm = this;
+    var vmDollar = this;
     $scope.search = function(){
       var filteredCousines = [];
       var opts = document.getElementById("filter-cousine").options;
@@ -67,6 +68,7 @@ angular.module('restaurantclientApp')
           vm.formData = {
             myRating: 2
           };
+          vm.averageRatingDollar = json.map(obj => obj.priceRange);
           $scope.numPerPage = 9;
           $scope.numPages = numPages;
           $scope.totalItems = 19;//res.data.totalItems;
