@@ -85,10 +85,13 @@ angular.module('restaurantclientApp')
   })
   .controller('modalInstanceCtrl', function ($scope, $rootScope, SharedContext, RestaurantService, $window){
     $scope.rateRestaurant= function(){
+
+      var json = JSON.parse($window.localStorage.getItem('restaurant'));
+      var id = json.id;
       var data = {
         mark: $scope.formData.myRating,
         emailUser: $window.localStorage.getItem('userInfo'),
-        idRestaurant: JSON.parse($window.localStorage.getItem('restaurant')).id,
+        idRestaurant: id,
         comment: $scope.comment
       };
       RestaurantService.rateRestaurant(data, $window.localStorage.getItem('token')).then(function(res){
