@@ -88,7 +88,7 @@ angular.module('restaurantclientApp')
       var data = {
         mark: $scope.formData.myRating,
         emailUser: $window.localStorage.getItem('userInfo'),
-        idRestaurant: $window.localStorage.getItem('restaurant').id,
+        idRestaurant: JSON.parse($window.localStorage.getItem('restaurant')).id,
         comment: $scope.comment
       };
       RestaurantService.rateRestaurant(data, $window.localStorage.getItem('token')).then(function(res){
