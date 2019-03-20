@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f93b936e-c593-4414-8ea3-469784e99fa6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scripts/controllers/restaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/controllers/restaurant.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,8 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/restaurant.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="91" column="31" lean-forward="true" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+            <state relative-caret-position="127">
+              <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -293,7 +292,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553047235416" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553048081125" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -361,12 +360,12 @@
       <workItem from="1552323098821" duration="6204000" />
       <workItem from="1552433848321" duration="25837000" />
       <workItem from="1552579259844" duration="2173000" />
-      <workItem from="1552687142723" duration="51244000" />
+      <workItem from="1552687142723" duration="51874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="529298000" />
+    <option name="totallyTimeSpent" value="529928000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -379,6 +378,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="18" y="6" width="1346" height="725" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4949495" visible="true" weight="0.21772939" />
       <window_info id="Structure" order="1" sideWeight="0.5050505" side_tool="true" weight="0.21772939" />
@@ -738,8 +738,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/restaurant.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="91" column="31" lean-forward="true" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+        <state relative-caret-position="127">
+          <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
         </state>
       </provider>
     </entry>
