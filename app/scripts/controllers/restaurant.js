@@ -87,7 +87,7 @@ angular.module('restaurantclientApp')
     $scope.rateRestaurant= function(){
       var data = {
         mark: $scope.formData.myRating,
-        emailUser: $rootScope.userInfo,
+        emailUser: $window.localStorage.getItem('userInfo'),
         idRestaurant: SharedContext.getData().id,
         comment: $scope.comment
       };
