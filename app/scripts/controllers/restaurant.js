@@ -1,21 +1,6 @@
 'use strict';
 
 
-
-var ModalInstanceCtrl = function ($scope, $rootScope, SharedContext, RestaurantService, $window){
-  $scope.rateRestaurant= function(){
-    var data = {
-      mark: $scope.formData.myRating,
-      emailUser: $rootScope.userInfo,
-      idRestaurant: SharedContext.getData().id,
-      comment: $scope.comment
-    };
-    RestaurantService.rateRestaurant(data, $window.localStorage.getItem('token')).then(function(res){
-      console.log('unesen');
-    });
-  };
-};
-
 angular.module('restaurantclientApp')
   .controller('RestaurantCtrl', function ($scope, $window, SharedContext, $uibModal, RestaurantService) {
     var vm = this;
@@ -57,7 +42,7 @@ angular.module('restaurantclientApp')
     $scope.review = function(){
       $uibModal.open({
         templateUrl: 'rateRestaurant.html',
-        controller: ModalInstanceCtrl
+        controller: 'modalInstanceCtrl'
       });
     };
     $scope.showMenu = function(){
@@ -96,5 +81,18 @@ angular.module('restaurantclientApp')
       };
       SharedContext.addData(reservation);
       $window.location.href='#/reservation';
+    };
+  })
+  .controller('modalInstanceCtrl', function ($scope, $rootScope, SharedContext, RestaurantService, $window){
+    $scope.rateRestaurant= function(){
+      var data = {
+        mark: $scope.formData.myRating,
+        emailUser: $rootScope.userInfo,
+        idRestaurant: SharedContext.getData().id,
+        comment: $scope.comment
+      };
+      RestaurantService.rateRestaurant(data, $window.localStorage.getItem('token')).then(function(res){
+        console.log('unesen');
+      });
     };
   });

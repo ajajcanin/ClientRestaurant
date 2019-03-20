@@ -61,7 +61,7 @@
       <div class="random-restaurant-content" id="{{$index}}">
         <img class="img-rand img-responsive" ng-src="{{item.imageFileName}}">
         <div class = "random-restaurant-name">{{item.restaurantName}}</div><!--item.name/rate/price-->
-        <div class="rating-range">
+        <div class="g">
           <rating-stars ratings="vm.ratings[$index]" average-rating="vm.averageRating[$index]" ratings-position="{{vm.ratingsPosition}}">
           </rating-stars></div>
         <div class="dollar-range">
