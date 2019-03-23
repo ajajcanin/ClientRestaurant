@@ -19,11 +19,12 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/vm.css">
     <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/search.css">
     <link rel="stylesheet" href="styles/restaurant.css">
     <link rel="stylesheet" href="styles/reservation.css">
-    <link rel="stylesheet" href="styles/vm.css">
     <!-- endbuild -->
   </head>
   <body ng-app="restaurantclientApp">
@@ -38,7 +39,7 @@
 
     <div ng-view=""></div>
 
-    <div class="footer">
+    <div class="footer" ng-include="'views/footer.html'">
 
     </div>
 

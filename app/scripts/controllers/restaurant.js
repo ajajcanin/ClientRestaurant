@@ -95,7 +95,11 @@ angular.module('restaurantclientApp')
         comment: $scope.comment
       };
       RestaurantService.rateRestaurant(data, $window.localStorage.getItem('token')).then(function(res){
-        console.log('unesen');
+          var json = JSON.parse($window.localStorage.getItem('restaurant'));
+          json.votes = res.data.ratings;
+          json.mark = res.data.grade;
+          $window.localStorage.setItem('restaurant', json);
+          $window.location.reload();
       });
     };
   });

@@ -209,3 +209,7 @@ textarea{
   margin-top: 10px;
   margin-bottom: 42px;
 }
+.restaurant-info > rating-stars .ratings-right, .restaurant-info > rating-stars .ratings-left {
+  color: #ffffff;
+  opacity : 0.4;
+}
