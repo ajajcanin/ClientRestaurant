@@ -98,7 +98,7 @@ angular.module('restaurantclientApp')
           var json = JSON.parse($window.localStorage.getItem('restaurant'));
           json.votes = res.data.ratings;
           json.mark = res.data.grade;
-          $window.localStorage.setItem('restaurant', json.toString());
+          $window.localStorage.setItem('restaurant', JSON.stringify(json));
           $window.location.reload();
       });
     };
