@@ -1,0 +1,152 @@
+<div class="container">
+  <uib-tabset class = "adminTabs" active="activeTab">
+    <uib-tab index="0" heading="Dashboard">
+      {{active}}
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="adminCards">
+            <h2>{{counter.restaurants}}</h2>
+            <h5>Restaurants</h5>
+            <button class="btn btn-add" ng-click="addNewRestaurant()">Add new restaurant</button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="adminCards">
+            <h2>{{counter.locations}}</h2>
+            <h5>Locations</h5>
+            <button class="btn btn-add" ng-click="addNewLocation()">Add new location</button>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="adminCards">
+            <h2>{{counter.users}}</h2>
+            <h5>Users</h5>
+            <button class="btn btn-add" ng-click="addNewUser()">Add new user</button>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+
+
+
+    <uib-tab index="1" heading="Restaurants">
+      <div ng-controller="AdminRestaurants">
+        <div ng-show="show">
+          <!-- DODATI BUTTON-->
+          <div class="adminCards">
+            <table class ="table table-bordered">
+              <thead>
+              <tr>
+                <th class="col-xs-11">Name</th>
+                <th class="col-xs-1"></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="restaurant in restaurants">
+                  <td> {{restaurant.name}}</td>
+                  <td><i class="material-icons" ng-click="edit(restaurant)">edit</i>  <i class="material-icons" ng-click="delete(restaurant)">delete</i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div ng-show="!show">
+          <form name="adminAddRestaurant" ng-submit="addRestaurant(restaurant)">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <h3>Logo</h3>
+                <input type="file">
+                <h3>Name</h3>
+                <h3>Description</h3>
+                <h3>Location</h3>
+              </div>
+
+              <div class="col-xs-12 col-sm-6">
+                <h3>Cover</h3>
+                <h3>Price range</h3>
+                <h3>Location</h3>
+                <h3>Category</h3>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </uib-tab>
+
+
+    <uib-tab index="2" heading="Locations">
+      <div ng-controller="AdminRestaurants">
+        <div ng-show="show">
+          <!-- DODATI BUTTON-->
+          <div class="adminCards">
+            <table class ="table table-bordered">
+              <thead>
+              <tr>
+                <th class="col-xs-11">Name</th>
+                <th class="col-xs-1"></th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="location in locations">
+                  <td> {{location.name}}</td>
+                  <td><i class="material-icons" ng-click="edit(location)">edit</i>  <i class="material-icons" ng-click="delete(location)">delete</i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+
+    <uib-tab index="3" heading="Categories">
+      <div ng-controller="AdminRestaurants">
+        <div ng-show="show">
+          <!-- DODATI BUTTON-->
+          <div class="adminCards">
+            <table class ="table table-bordered">
+              <thead>
+              <tr>
+                <th class="col-xs-11">Name</th>
+                <th class="col-xs-1"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="location in locations">
+                <td> {{location.name}}</td>
+                <td><i class="material-icons" ng-click="edit(location)">edit</i>  <i class="material-icons" ng-click="delete(location)">delete</i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+
+    <uib-tab index="4" heading="Users">
+      <div ng-controller="AdminRestaurants">
+        <div ng-show="show">
+          <!-- DODATI BUTTON-->
+          <div class="adminCards">
+            <table class ="table table-bordered">
+              <thead>
+              <tr>
+                <th class="col-xs-11">Name</th>
+                <th class="col-xs-1"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="location in locations">
+                <td> {{location.name}}</td>
+                <td><i class="material-icons" ng-click="edit(location)">edit</i>  <i class="material-icons" ng-click="delete(location)">delete</i></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+
+
+  </uib-tabset>
+</div>

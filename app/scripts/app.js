@@ -90,6 +90,9 @@ app
           redirectTo: 'login',
         }
       })
+      .when('/admin', {
+        templateUrl: 'views/admin.html',
+      })
       .otherwise({
         redirectTo: '/'
       });

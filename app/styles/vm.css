@@ -40,6 +40,7 @@ rating-dollars .dollar {
   color: rgba(19, 29, 36, 0.3);
   transition: color 0.2s cubic-bezier(0.5, 0, 0.2, 1);
   vertical-align: middle;
+  font-size: 18px;
 }
 rating-dollars .dollar::before {
   content: "attach_money";
@@ -55,4 +56,12 @@ rating-dollars .dollar.on::before {
 }
 rating-dollars .dollar.on-half::before {
   content: "attach_money";
+}
+
+.rating-range{
+  display : inline-block;
+  width : 150px;
+}
+.dollar-range {
+  display: inline-block;
 }
