@@ -1,27 +1,30 @@
 <div class="container">
-  <uib-tabset class = "adminTabs" active="activeTab">
-    <uib-tab index="0" heading="Dashboard">
-      {{active}}
-      <div class="row">
-        <div class="col-xs-12 col-sm-4">
-          <div class="adminCards">
-            <h2>{{counter.restaurants}}</h2>
-            <h5>Restaurants</h5>
-            <button class="btn btn-add" ng-click="addNewRestaurant()">Add new restaurant</button>
+  <uib-tabset class = "adminTabs" active="activeTab" >
+    <button ng-if="activeTab != 0" id="admin-add-btn" class="btn btn-add admin-btn" ng-click="addNewElement(activeTab)">Add {{btnValue[activeTab-1]}}</button>
+    <uib-tab index="0" heading="Dashboard" ng-click="$root.show=true">
+      <div ng-controller="AdminDashboardCtrl">
+        {{$root.show}}
+        <div class="row">
+          <div class="col-xs-12 col-sm-4">
+            <div class="adminCards">
+              <h2>{{counter.restaurants}}</h2>
+              <h5>Restaurants</h5>
+              <button class="btn btn-add" ng-click="addNewRestaurant()">Add new restaurant</button>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="adminCards">
-            <h2>{{counter.locations}}</h2>
-            <h5>Locations</h5>
-            <button class="btn btn-add" ng-click="addNewLocation()">Add new location</button>
+          <div class="col-xs-12 col-sm-4">
+            <div class="adminCards">
+              <h2>{{counter.locations}}</h2>
+              <h5>Locations</h5>
+              <button class="btn btn-add" ng-click="addNewLocation()">Add new location</button>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-4">
-          <div class="adminCards">
-            <h2>{{counter.users}}</h2>
-            <h5>Users</h5>
-            <button class="btn btn-add" ng-click="addNewUser()">Add new user</button>
+          <div class="col-xs-12 col-sm-4">
+            <div class="adminCards">
+              <h2>{{counter.users}}</h2>
+              <h5>Users</h5>
+              <button class="btn btn-add" ng-click="addNewUser()">Add new user</button>
+            </div>
           </div>
         </div>
       </div>
@@ -29,43 +32,95 @@
 
 
 
-    <uib-tab index="1" heading="Restaurants">
-      <div ng-controller="AdminRestaurants">
-        <div ng-show="show">
-          <!-- DODATI BUTTON-->
+    <uib-tab index="1" heading="Restaurants" active="activeTab" ng-click="$root.show=true">
+      <div ng-controller="AdminRestaurantsCtrl">
+        <div ng-show="$root.show">
           <div class="adminCards">
-            <table class ="table table-bordered">
+            <table class ="table table-bordered admin-tables">
               <thead>
-              <tr>
-                <th class="col-xs-11">Name</th>
-                <th class="col-xs-1"></th>
-              </tr>
+                <tr>
+                  <th class="col-xs-11">Name</th>
+                  <th class="col-xs-1"></th>
+                </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="restaurant in restaurants">
-                  <td> {{restaurant.name}}</td>
+                  <td> {{restaurant.restaurantName}}</td>
                   <td><i class="material-icons" ng-click="edit(restaurant)">edit</i>  <i class="material-icons" ng-click="delete(restaurant)">delete</i></td>
                 </tr>
               </tbody>
             </table>
+            <div ng-show="notEmpty" class = "pagination-sm pagination-custom" uib-pagination="" ng-model="currentPage"
+                 total-items="totalItems"
+                 items-per-page="9"
+                 ng-change="pageChanged()">
+            </div>
           </div>
         </div>
-        <div ng-show="!show">
-          <form name="adminAddRestaurant" ng-submit="addRestaurant(restaurant)">
+        <div ng-show="!$root.show">
+          <form name="adminAddRestaurant" ng-submit="addRestaurant()" class="shadow-form main-admin-form">
             <div class="row">
-              <div class="col-xs-12 col-sm-6">
+              <div class="col-xs-12 col-sm-6 admin-forms">
                 <h3>Logo</h3>
-                <input type="file">
+                <input type="file" ng-model="imagesSrc.profile" id="logoImg" ng-file-select="onFileSelect($files)" accept="image/*">
+                <label for="logoImg" class="upload-img" ng-show="!imagesSrc.profile">
+                  <i class="material-icons" style="font-size: 60px">cloud_upload</i>
+                  <h4>Upload logo</h4>
+                </label>
+                <label for="logoImg" class="upload-img" ng-show="imagesSrc.profile">
+                  <img class="uploaded-profile" src="{{imagesSrc.profile}}">
+                </label>
                 <h3>Name</h3>
+                <input type="text" id="name-restaurant-input">
                 <h3>Description</h3>
+                <textarea name="textarea1"></textarea>
                 <h3>Location</h3>
+                <div map-lazy-load="https://maps.google.com/maps/api/js" class="map-holder">
+                  <ng-map center="{{gmap.center}}" zoom="10"  >
+                    <marker position="{{gmap.pos}}" animation="DROP" on-dragend="dragEnd()" draggable="true"></marker>
+                  </ng-map>
+                </div>
               </div>
 
-              <div class="col-xs-12 col-sm-6">
+              <div class="col-xs-12 col-sm-6 admin-forms">
                 <h3>Cover</h3>
+                <input type="file" id="coverImg">
+                <label for="coverImg" class="upload-img">
+                  <i class="material-icons" style="font-size: 60px">cloud_upload</i>
+                  <h4>Upload cover</h4>
+                </label>
                 <h3>Price range</h3>
+                <select name="country" class="fields"
+                        ng-model="info.country" required>
+                  <option value="1">Very low</option>
+                  <option value="2">Low</option>
+                  <option value="3">Medium</option>
+                  <option value="4">High</option>
+                  <option value="5">Very high</option>
+
+                </select>
                 <h3>Location</h3>
+                <div class="div-fields row">
+                  <div class="col-md-7">
+                    <select name="country" class="fields"
+                            ng-model="info.country" ng-options="item.id as item.country disable when item.disabled for item in countries"
+                            ng-change="updateCities()" required>
+                    </select>
+                    <span ng-show="form.country.$touched
+            && form.country.$invalid">Country is required</span>
+                  </div>
+
+                  <div class="col-md-5">
+                    <select type="text" name="city" class="fields"
+                            ng-model="info.city" ng-options="item as item.city disable when item.disabled for item in cities" required>
+                    </select>
+                    <span ng-show="form.city.$touched
+            && form.city.$invalid">City is required</span>
+                  </div>
+                </div>
                 <h3>Category</h3>
+                <button ng-click="$root.show = true" class="btn back-btn">Back</button>
+                <input type="submit" class="btn admin-btn proceed-btn" value="Add restaurant">
               </div>
             </div>
 
@@ -75,8 +130,8 @@
     </uib-tab>
 
 
-    <uib-tab index="2" heading="Locations">
-      <div ng-controller="AdminRestaurants">
+    <uib-tab index="2" heading="Locations" active="activeTab" ng-click="$root.show=true">
+      <div ng-controller="AdminRestaurantsCtrl">
         <div ng-show="show">
           <!-- DODATI BUTTON-->
           <div class="adminCards">
@@ -97,10 +152,10 @@
           </div>
         </div>
       </div>
-    </uib-tab>
+    </uib-tab >
 
-    <uib-tab index="3" heading="Categories">
-      <div ng-controller="AdminRestaurants">
+    <uib-tab index="3" heading="Categories" active="activeTab" ng-click="$root.show=true">
+      <div ng-controller="AdminRestaurantsCtrl">
         <div ng-show="show">
           <!-- DODATI BUTTON-->
           <div class="adminCards">
@@ -123,8 +178,8 @@
       </div>
     </uib-tab>
 
-    <uib-tab index="4" heading="Users">
-      <div ng-controller="AdminRestaurants">
+    <uib-tab index="4" heading="Users" active="activeTab" ng-click="$root.show=true">
+      <div ng-controller="AdminRestaurantsCtrl">
         <div ng-show="show">
           <!-- DODATI BUTTON-->
           <div class="adminCards">

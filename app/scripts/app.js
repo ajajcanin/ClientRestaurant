@@ -37,6 +37,16 @@ app.config(function ($httpProvider, jwtOptionsProvider){
       return window.localStorage.getItem('token');
     }]
   });
+
+  var config = {
+    apiKey: 'AIzaSyDwQgbcwVYhXYBbXtsDsfhTRCMOTVKeO1I',
+    authDomain: 'restaurantreservation-2c-cc397.firebaseapp.com',
+    databaseURL: 'https://restaurantreservation-2c-cc397.firebaseio.com',
+    projectId: 'restaurantreservation-2ce49',
+    storageBucket: 'restaurantreservation-2ce49.appspot.com',
+    messagingSenderId: '430376921913'
+  };
+  firebase.initializeApp(config);
 });
 app
   .config(function ($routeProvider) {
@@ -84,7 +94,7 @@ app
       .when('/reservation', {
         templateUrl: 'views/reservation.html',
         controller: 'RestaurantCtrl',
-        controllerAs: 'restaurant',
+        controllerAs: 'reservation',
         date:{
           authorization:true,
           redirectTo: 'login',
@@ -92,6 +102,8 @@ app
       })
       .when('/admin', {
         templateUrl: 'views/admin.html',
+        controller: 'AdminCtrl',
+        controllerAs: 'admin'
       })
       .otherwise({
         redirectTo: '/'
