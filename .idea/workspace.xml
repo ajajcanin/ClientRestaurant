@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f93b936e-c593-4414-8ea3-469784e99fa6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scripts/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scripts/controllers/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/controllers/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scripts/controllers/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/controllers/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scripts/services/SharedContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/services/SharedContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scripts/services/LocationService.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/services/LocationService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/styles/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/styles/admin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/scripts/scripts.94ea6a38.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/styles/main.cc57423d.css" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,19 +33,53 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="167" column="84" selection-start-line="167" selection-start-column="84" selection-end-line="167" selection-end-column="84" />
+              <folding>
+                <element signature="n#uib-tab#0;n#uib-tabset#0;n#div#0;n#!!top" />
+                <element signature="n#style#0;n#i#0;n#label#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#label#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#uib-tab#3;n#uib-tabset#0;n#div#0;n#!!top" />
+                <element signature="n#uib-tab#4;n#uib-tabset#0;n#div#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/services/LocationService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="26" selection-end-column="11" />
+            <state relative-caret-position="360">
+              <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/AdminService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="139">
+              <caret line="29" column="79" selection-start-line="29" selection-start-column="79" selection-end-line="29" selection-end-column="79" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/scripts/services/AdminService.js">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="79" selection-start-line="29" selection-start-column="79" selection-end-line="29" selection-end-column="79" />
+            <state relative-caret-position="-643">
+              <caret line="119" column="69" selection-start-line="119" selection-start-column="69" selection-end-line="119" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -61,33 +89,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="13" lean-forward="true" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/search.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="99" column="6" selection-start-line="99" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1649">
-              <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -122,8 +123,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/styles/admin.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="99" column="11" selection-start-line="99" selection-start-column="11" selection-end-line="99" selection-end-column="11" />
+            <state relative-caret-position="224">
+              <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -200,7 +201,6 @@
         <option value="$PROJECT_DIR$/app/views/restaurant.html" />
         <option value="$PROJECT_DIR$/app/views/reservation.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/reservation.js" />
-        <option value="$PROJECT_DIR$/app/scripts/services/LocationService.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/LoginService.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/RegisterService.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/ReservationService.js" />
@@ -225,11 +225,12 @@
         <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/SharedContext.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/admin.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/FireService.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/AdminService.js" />
         <option value="$PROJECT_DIR$/app/views/admin.html" />
         <option value="$PROJECT_DIR$/app/styles/admin.css" />
-        <option value="$PROJECT_DIR$/app/scripts/services/AdminService.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/LocationService.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/admin.js" />
       </list>
     </option>
   </component>
@@ -239,7 +240,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="width" value="1386" />
     <option name="height" value="788" />
   </component>
@@ -311,7 +312,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554141989153" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554159158282" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -388,12 +389,12 @@
       <workItem from="1553558931427" duration="577000" />
       <workItem from="1553599785715" duration="16656000" />
       <workItem from="1553712964124" duration="89920000" />
-      <workItem from="1554139944372" duration="1346000" />
+      <workItem from="1554139944372" duration="5170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="661594000" />
+    <option name="totallyTimeSpent" value="665418000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -626,13 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="43" column="4" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="60" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -738,32 +732,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="80" column="27" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
-          <folding>
-            <element signature="n#uib-tab#0;n#uib-tabset#0;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#i#0;n#label#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#label#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#uib-tab#2;n#uib-tabset#0;n#div#0;n#!!top" />
-            <element signature="n#uib-tab#3;n#uib-tabset#0;n#div#0;n#!!top" />
-            <element signature="n#uib-tab#4;n#uib-tabset#0;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/search.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
           <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" column="33" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -802,20 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="99" column="11" selection-start-line="99" selection-start-column="11" selection-end-line="99" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/CousineService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/FireService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -830,17 +788,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/services/LocationService.js">
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/CousineService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="24" column="10" lean-forward="true" selection-start-line="24" selection-start-column="10" selection-end-line="26" selection-end-column="11" />
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="167" column="84" selection-start-line="167" selection-start-column="84" selection-end-line="167" selection-end-column="84" />
+          <folding>
+            <element signature="n#uib-tab#0;n#uib-tabset#0;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#i#0;n#label#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#label#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#uib-tab#3;n#uib-tabset#0;n#div#0;n#!!top" />
+            <element signature="n#uib-tab#4;n#uib-tabset#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="92" column="19" selection-start-line="92" selection-start-column="19" selection-end-line="92" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/services/AdminService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
+        <state relative-caret-position="139">
           <caret line="29" column="79" selection-start-line="29" selection-start-column="79" selection-end-line="29" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/LocationService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-643">
+          <caret line="119" column="69" selection-start-line="119" selection-start-column="69" selection-end-line="119" selection-end-column="69" />
         </state>
       </provider>
     </entry>

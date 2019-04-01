@@ -119,11 +119,11 @@
                   </div>
                 </div>
                 <h3>Category</h3>
-                <button ng-click="$root.show = true" class="btn back-btn">Back</button>
-                <input type="submit" class="btn admin-btn proceed-btn" value="Add restaurant">
               </div>
             </div>
 
+            <input type="submit" class="btn admin-btn proceed-btn" value="Add restaurant">
+            <button ng-click="$root.show = true" class="btn back-btn">Back</button>
           </form>
         </div>
       </div>
@@ -131,27 +131,45 @@
 
 
     <uib-tab index="2" heading="Locations" active="activeTab" ng-click="$root.show=true">
-      <div ng-controller="AdminRestaurantsCtrl">
-        <div ng-show="show">
-          <!-- DODATI BUTTON-->
-          <div class="adminCards">
-            <table class ="table table-bordered">
-              <thead>
-              <tr>
-                <th class="col-xs-11">Name</th>
-                <th class="col-xs-1"></th>
-              </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="location in locations">
-                  <td> {{location.name}}</td>
-                  <td><i class="material-icons" ng-click="edit(location)">edit</i>  <i class="material-icons" ng-click="delete(location)">delete</i></td>
-                </tr>
-              </tbody>
-            </table>
+      <div ng-show="$root.show">
+        <div class="adminCards">
+          <table class ="table table-bordered admin-tables">
+            <thead>
+            <tr>
+              <th class="col-xs-11">Name</th>
+              <th class="col-xs-1"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="city in cities">
+              <td> {{location.city}}</td>
+              <td><i class="material-icons" ng-click="edit(restaurant)">edit</i>  <i class="material-icons" ng-click="delete(city)">delete</i></td>
+            </tr>
+            </tbody>
+          </table>
+          <div ng-show="notEmpty" class = "pagination-sm pagination-custom" uib-pagination="" ng-model="currentPage"
+               total-items="totalItems"
+               items-per-page="9"
+               ng-change="pageChanged()">
           </div>
         </div>
       </div>
+      <div ng-show="!$root.show">
+        <form name="adminAddLocation" ng-submit="addLocation()" class="shadow-form main-admin-form">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 admin-forms">
+              <input type="text" placeholder="New/existing country name">
+            </div>
+
+            <div class="col-xs-12 col-sm-6 admin-forms">
+              <input type="text" placeholder="New city name">
+            </div>
+          </div>
+          <input type="submit" class="btn admin-btn proceed-btn" value="Add location">
+          <button ng-click="$root.show = true" class="btn back-btn">Back</button>
+        </form>
+      </div>
+</div>
     </uib-tab >
 
     <uib-tab index="3" heading="Categories" active="activeTab" ng-click="$root.show=true">

@@ -28,5 +28,16 @@ angular.module('restaurantclientApp')
         };
         return $http(req);
       },
+      getCitiesPagination: function(data){
+        var req = {
+          method: 'POST',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/cities',
+          data: data,
+          header:{
+            'Content-Type' : 'application/json'
+          }
+        };
+        return $http(req);
+      }
     };
   });
