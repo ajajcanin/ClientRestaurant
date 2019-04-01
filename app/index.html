@@ -11,13 +11,20 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-carousel/dist/ui-carousel.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="styles/vm.css">
     <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/restaurant.css">
+    <link rel="stylesheet" href="styles/reservation.css">
     <!-- endbuild -->
   </head>
   <body ng-app="restaurantclientApp">
@@ -32,7 +39,7 @@
 
     <div ng-view=""></div>
 
-    <div class="footer">
+    <div class="footer" ng-include="'views/footer.html'">
 
     </div>
 
@@ -63,6 +70,10 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-carousel/dist/ui-carousel.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -73,15 +84,23 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/login.js"></script>
         <script src="scripts/controllers/register.js"></script>
+        <script src="scripts/controllers/search.js"></script>
+        <script src="scripts/controllers/restaurant.js"></script>
+        <script src="scripts/controllers/reservation.js"></script>
+        <script src="scripts/controllers/logout.js"></script>
+        <script src="scripts/controllers/admin.js"></script>
         <!-- services -->
         <script src="scripts/services/RestaurantService.js"></script>
         <script src="scripts/services/LoginService.js"></script>
         <script src="scripts/services/RegisterService.js"></script>
         <script src="scripts/services/LocationService.js"></script>
         <script src="scripts/services/SharedContext.js"></script>
+        <script src="scripts/services/ReservationService.js"></script>
+    <script src="scripts/services/CousineService.js"></script>
 
         <!--directives -->
         <script src="scripts/directives/vm.js"></script>
+        <script src="scripts/directives/vmDollar.js"></script>
         <!-- endbuild -->
 </body>
 </html>

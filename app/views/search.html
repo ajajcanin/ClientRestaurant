@@ -1,0 +1,93 @@
+<div ng-controller="SearchCtrl as vm">
+  <form class="form-horizontal form-search custom-form-search"  ng-submit="searchHandler()">
+    <div class="shadow-form">
+      <div class="col-sm-8 input-holder guests-div"><i class="material-icons search loop">search</i>
+        <input ng-model="reservation.nameRes" type="text" placeholder="Location, Restaurant or Cousine"></div>
+      <div class="col-sm-2 input-holder">
+        <div class="btn-group" uib-dropdown is-open="status.isopen">
+          <button id="single-button" type="button" class="btn" uib-dropdown-toggle ng-disabled="disabled">
+            Filter by <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+
+            <li role="menuitem">
+              <ul class="list-inline">
+                <li>
+                  <ul class="list-unstyled">
+                    <li>
+                      <h2>PRICE</h2>
+                    </li>
+                    <li>
+                      <rating-dollars ng-model="formData.priceRange" ng-change="priceChange()"
+                                    ratings="0" average-rating="0" ratings-position=""></rating-dollars>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="filter-snd-col">
+                  <ul class="list-unstyled">
+                    <li>
+                      <h2>RATING</h2>
+                    </li>
+                    <li>
+                      <rating-stars ng-model="formData.myRating" ng-change="ratingChange()"
+                                    ratings="0" average-rating="0" ratings-position=""></rating-stars>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            <li role="menuitem">
+
+            <li class="divider"></li>
+              <li class="filter-snd-col">
+                <h2>COUSINE</h2>
+                <select ng-model="filterCousine" id="filter-cousine" multiple ><option class="col-sm-6 options-cousine" ng-repeat="cousine in cousines" value="{{$index+1}}">{{cousine}}</option> </select>
+              </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-2 input-holder"><input type="submit" value="Search"></div>
+    </div>
+  </form>
+
+
+  <!-- Searched restourants -->
+  <div class="container random-restaurants-container">
+
+    <div ng-show="noFilter" uib-alert class="search-alert" close="closeAlert()">Showing reasults for restaurants available on {{params.date | date:'dd/MM/yyyy'}}
+    at {{params.time | date:'hh:mm'}} for {{params.guests}} people</div>
+    <div ng-show="notEmpty" class="col-md-4 col-sm-6 col-xs-12 text-margin-random-restaurant" ng-repeat="item in restaurants">
+      <div class="random-restaurant-content" id="{{$index}}">
+        <img class="img-rand img-responsive" ng-src="{{item.imageFileName}}">
+        <div class = "random-restaurant-name">{{item.restaurantName}}</div><!--item.name/rate/price-->
+        <div class="rating-range">
+          <rating-stars ratings="vm.ratings[$index]" average-rating="vm.averageRating[$index]" ratings-position="{{vm.ratingsPosition}}">
+          </rating-stars></div>
+        <div class="dollar-range">
+          <rating-dollars ratings="1" average-rating="vm.averageRatingDollar[$index]" ratings-position="">
+          </rating-dollars></div>
+        <div class = "random-restaurant-name search-food-type">{{item.foodType}}</div>
+        <input type="submit" value="Reserve Now" ng-click="viewRestaurant($event)">
+      </div>
+      <!--cousines-->
+    </div>
+    <div class ="no-results-msg" ng-show="!notEmpty"><p>There are no results matching your search</p></div>
+  </div>
+  <div ng-show="notEmpty" class = "pagination-sm pagination-custom" uib-pagination="" ng-model="currentPage"
+       total-items="totalItems"
+       items-per-page="9"
+      ng-change="pageChanged()">
+  </div>
+</div>
+
+<!-- Locations / hardcoded -->
+<div class="container locations" ng-controller="LocationCtrl">
+  <div class ="text-center popular-locations-title">Popular locations</div>
+  <div  class="col-md-3 col-sm-4 col-xs-6 random-restaurant-content" ng-repeat="location in locations">
+    <div class="location-content">
+      <div class="loc-city-name">{{location.city}}</div>
+      <div class="loc-restaurant-number">{{location.restaurantNum}} restaurants</div>
+    </div>
+  </div>
+</div>

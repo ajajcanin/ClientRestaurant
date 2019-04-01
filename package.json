@@ -40,5 +40,10 @@
   "scripts": {
     "test": "karma start test\\karma.conf.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.16.4",
+    "grunt-contrib-uglify-es": "github:gruntjs/grunt-contrib-uglify#harmony",
+    "gzippo": "^0.2.0",
+    "morgan": "^1.9.1"
+  }
 }

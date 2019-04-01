@@ -6,8 +6,8 @@ angular.module('restaurantclientApp')
     return {
       getRestaurants: function(data){
         var req = {
-          method:'GET',
-          url: 'http://localhost:8080/app/search',
+          method:'POST',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/search',
           data: data,
           headers: {
           }
@@ -17,11 +17,67 @@ angular.module('restaurantclientApp')
       getRandomRestaurants: function(){
         var req = {
           method:'GET',
-          url: 'http://localhost:8080/app/random',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/random',
           headers: {
             'Access-Control-Allow-Origin' : '*',
             'Access-Control-Allow-Methods' : '*',
             'Access-Control-Allow-Headers' : '*'
+          }
+        };
+        return $http(req);
+      },
+      getSearchedRestaurants: function(data){
+        var req = {
+          method:'POST',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/getRestaurantsByFilter',
+          data: data,
+          headers: {
+            'Content-Type':'application/json'
+          }
+        };
+        return $http(req);
+      },
+      rateRestaurant: function(data, token){
+        var req = {
+          method:'POST',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/insertComment',
+          data: data,
+          headers: {
+            'Content-Type':'application/json',
+            'Authorization':token
+          }
+        };
+        return $http(req);
+      },
+      checkReservationAvailability: function(data){
+        var req = {
+          method:'POST',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/checkReservationAvailability',
+          data: data,
+          headers: {
+            'Content-Type':'application/json'
+          }
+        };
+        return $http(req);
+      },
+      makeReservation: function(data){
+        var req = {
+          method:'POST',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/makeReservation',
+          data: data,
+          headers: {
+            'Content-Type':'application/json'
+          }
+        };
+        return $http(req);
+      },
+      getExtraDetails: function(data){
+        var req = {
+          method:'POST',
+            url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/getExtraDetails',
+          data: data,
+          headers: {
+            'Content-Type':'application/json'
           }
         };
         return $http(req);

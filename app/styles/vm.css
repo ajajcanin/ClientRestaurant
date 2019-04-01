@@ -1,0 +1,67 @@
+@keyframes rating-dollars-blink {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+rating-dollars .mutable {
+  cursor: pointer;
+}
+rating-dollars .hover .dollar {
+  position: relative;
+}
+rating-dollars .hover .dollar:hover::after {
+  animation-name: rating-dollars-blink;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.5, 0, 0.2, 1);
+}
+rating-dollars .hover .dollar::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(19, 29, 36, 0.3);
+  content: "attach_money";
+  opacity: 0;
+}
+rating-dollars .ratings-right, rating-dollars .ratings-left {
+  vertical-align: middle;
+  color: #131d24;
+}
+rating-dollars .ratings-right {
+  margin-left: 5px;
+}
+rating-dollars .ratings-left {
+  margin-right: 5px;
+}
+rating-dollars .dollar {
+  color: rgba(19, 29, 36, 0.3);
+  transition: color 0.2s cubic-bezier(0.5, 0, 0.2, 1);
+  vertical-align: middle;
+  font-size: 18px;
+}
+rating-dollars .dollar::before {
+  content: "attach_money";
+}
+rating-dollars .dollar.on, rating-dollars .dollar.on-half {
+  color: #131d24;
+}
+rating-dollars .dollar.on.my, rating-dollars .dollar.on-half.my {
+  color: #131d24;
+}
+rating-dollars .dollar.on::before {
+  content: "attach_money";
+}
+rating-dollars .dollar.on-half::before {
+  content: "attach_money";
+}
+
+.rating-range{
+  display : inline-block;
+  width : 150px;
+}
+.dollar-range {
+  display: inline-block;
+}

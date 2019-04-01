@@ -1,0 +1,30 @@
+
+<h1 class="complete-reservation-txt">Complete your reservation</h1>
+<div>
+  <form name="reservation-form" ng-submit="makeReservation()" ng-controller="ReservationCtrl">
+  <div class="reservation-details">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 class="details-reservation">Reservation details</h2>
+          <img class="profile-image" ng-src="{{restaurant.imageFileName}}">
+        </div>
+        <div class="col-md-4 move-col-below">
+          <h3 class="details-titles">RESTAURANT</h3>
+          <p class="reservation-restaurant-name">{{restaurant.restaurantName}}</p>
+          <h3 class="details-titles">GUESTS</h3>
+          <p class="reservation-other">{{reservation.numGuests}}</p>
+        </div>
+        <div class="col-md-5 move-col-below">
+          <h3 class="details-titles">DATE</h3>
+          <p class="reservation-other">{{reservation.date | date: 'dd/MM/yyyy'}}</p>
+          <h3 class="details-titles">TIME</h3>
+          <p class="reservation-other">{{reservation.time}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    <input class="complete-reservation-btn" type="submit" value="Complete Reservation">
+  </form>
+</div>
+<p ng-if="!isAuthenticated">Log in to complete reservation!</p>

@@ -1,0 +1,23 @@
+.footer{
+  background-color: #131D24;
+  height: 150px;
+  color : #FFFFFF;
+}
+.footer-elements > ul > li{
+  display: inline-block;
+}
+.footer-elements > ul:nth-child(1){
+  float: left;
+  margin-top: 50px;
+}
+.footer-elements > ul:nth-child(1) > li, .footer-elements > ul:nth-child(2) > li{
+  margin-right: 20px;
+}
+.footer-elements > ul:nth-child(2){
+  float: right;
+  margin-top: 50px;
+}
+.footer-elements > ul:nth-child(3){
+  clear: both;
+}
+

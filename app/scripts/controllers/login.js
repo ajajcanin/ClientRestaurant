@@ -1,6 +1,6 @@
 'use strict';
 angular.module('restaurantclientApp')
-  .controller('LoginCtrl', function ($location, $http, $scope, $window, LoginService, authManager) {
+  .controller('LoginCtrl', function ($location, $http, $scope, $window, $rootScope, LoginService, authManager) {
     $scope.credentials = {
       email: '',
       pass: ''
@@ -20,6 +20,7 @@ angular.module('restaurantclientApp')
       LoginService.login(loginInfo).then(function (res){
         console.log(res.status);
           $window.localStorage.setItem('token', res.headers('authorization'));
+          $window.localStorage.setItem('userInfo', $scope.credentials.email);
           $window.location.href = '/#/home';
         authManager.authenticate();
       }).catch(function (){

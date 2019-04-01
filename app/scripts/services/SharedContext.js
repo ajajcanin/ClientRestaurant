@@ -12,5 +12,8 @@ angular.module('restaurantclientApp')
       getData: function(){
         return data.value;
       },
+      removeData: function(){
+        data.value=null;
+      }
     };
   });

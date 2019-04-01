@@ -1,0 +1,127 @@
+<div class="cover-image">
+  <div class="content-profile">
+  </div>
+  <div class = "container profile-container" ng-controller="RestaurantCtrl as vm">
+    <div class= "row">
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="random-restaurant-content">
+          <img class="profile-image" ng-src="{{restaurant.imageFileName}}">
+          <div class="list-group">
+            <a class="list-group-item">Reservation</a>
+            <a class="list-group-item">About</a>
+            <a class="list-group-item">Menu</a>
+            <a class="list-group-item">Galery</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="profile-main">
+          <div id="header-name"><p>{{restaurant.restaurantName}}</p></div>
+          <ul class="restaurant-info">
+            <rating-stars ratings="vm.ratings" average-rating="vm.averageRating" ratings-position="{{vm.ratingsPosition}}">
+            </rating-stars>
+            <!--li>{{restaurant.priceRange}}</li-->
+              <li class="food-type-restaurant">{{restaurant.foodType}}</li>
+          </ul>
+          <div class="review-btn"><button class="btn" type="submit" ng-click="review()"><i class="material-icons">star</i> <span>Rate this place</span></button></div>
+        </div>
+        <!-- main part-->
+        <div class="profile-reservation">
+          <div class="container profile-filter-reservation">
+            <p>Make a free reservation</p>
+              <form class="form-horizontal" ng-submit="findTables()">
+                <div class="row">
+                  <div class="col-sm-3 input-holder guests-div"><i class="material-icons search">person</i><input ng-model="reservation.numGuests" type="number" placeholder="Guests" onfocus="isCollapsed=true" required></div>
+                  <div class="col-sm-3 input-holder">
+                    <md-datepicker ng-model="reservation.date" md-hide-icons="triangle" md-placeholder="Insert Date" onfocus="isCollapsed=true"
+                                   md-open-on-focus="true" md-min-date="todayDate" required></md-datepicker></div>
+                  <div class="col-sm-3 input-holder"><div class="timepicker-default" uib-timepicker
+                                                          ng-model="reservation.time" hour-step="1" minute-step="30"
+                                                          show-meridian="false" show-spinners="false" onfocus="isCollapsed=true" required></div>
+                  </div>
+                  <div class="col-sm-3 input-holder">
+                    <input type="submit" value="Find a table"
+                            ng-click="isCollapsed = false" >
+                  </div>
+
+                  <div uib-collapse="isCollapsed">
+                    <div class="collapsing-part">
+                      <div class ="availability-text">
+                        Availability on {{reservation.date | date:'MMM'}} {{reservation.date | date:'dd'}},
+                        {{reservation.date | date:'yyyy'}} around {{reservation.time | date:'HH:mm'}} for
+                        {{reservation.numGuests}} people:
+                      </div>
+                      <div class="collapsed-tables">
+
+                        <i class="material-icons">restaurant</i> <p>{{tablesLeft}} tables left</p>
+                      </div>
+                      <div class ="time-pick-table">
+
+                        Select the best time that fits you:
+                      </div>
+                      <div class="col-xs-2" ng-repeat="times in bestTime">
+                        <div id="{{$index}}">
+                        <input type="submit" class="reservation-btns" value="{{times}}" ng-click="confirmReservation($event)">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </form>
+          </div>
+
+        </div>
+        <!-- Map -->
+        <div class="profile-reservation div-map">
+          <h1>About {{restaurant.restaurantName}}</h1>
+          <div map-lazy-load="https://maps.google.com/maps/api/js" class="map-holder">
+            <ng-map center="[43.8563, 18.4131]" zoom="10">
+              <marker position="[43.8563, 18.4131]"></marker>
+            </ng-map>
+          </div>
+          <h2>Description</h2>
+          <p>{{restaurant.description}}</p>
+        </div>
+
+        <!-- Menu -->
+        <div class="profile-reservation">
+          <div class="restaurant-content">
+
+            <h3>Menu: </h3>
+            <uib-tabset class="tabbable">
+              <uib-tab heading="Breakfast" ng-attr-active="tabs[0].active">
+                neki tekst
+              </uib-tab>
+
+              <uib-tab heading="Lunch" ng-attr-active="tabs[1].active">
+                neki tekst 2
+              </uib-tab>
+
+              <uib-tab heading="Dinner" ng-attr-active="tabs[2].active">
+                neki tekst 3
+              </uib-tab>
+            </uib-tabset>
+            <div class="fade"></div>
+            <input type="submit" ng-click="showMenu()" ng-style="{'max-height': '{{heightMenu}}px'}" value={{btnShowMenu}}>
+          </div>
+
+        </div>
+        <!-- Galery -->
+
+      </div>
+    </div>
+
+    <script id="rateRestaurant.html" type="text/ng-template" bindToController = "true">
+      <form name="formModal" ng-submit="rateRestaurant()" role="form" class="validation-form">
+        <div class="modal-header">Rate this place</div>
+        <div class="modal-stars"><rating-stars ng-model="formData.myRating" ng-change="ratingChange()"
+                           ratings="0" average-rating="0" ratings-position=""></rating-stars></div>
+        <div class="modal-review-input"><textarea ng-model="comment" placeholder="Write a review"></textarea></div>
+        <input type="submit" value="Save">
+      </form>
+    </script>
+
+
+  </div>
+</div>
+

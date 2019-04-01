@@ -6,21 +6,21 @@ angular.module('restaurantclientApp')
       getPopularLocations: function(){
         var req = {
           method:'GET',
-          url: 'http://localhost:8080/app/popular-locations',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/popular-locations',
         };
         return $http(req);
       },
       getCountries: function(){
         var req = {
           method:'GET',
-          url: 'http://localhost:8080/app/countries',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/countries',
         };
         return $http(req);
       },
       getCities: function(country){
         var req = {
           method:'POST',
-          url: 'http://localhost:8080/app/cities',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/cities',
           data: country,
           header:{
             'Content-Type' : 'application/json'
