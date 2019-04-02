@@ -16,18 +16,17 @@ angular.module('restaurantclientApp')
   .controller('AdminDashboardCtrl', function ($scope) {
 
   })
-  .controller('AdminRestaurantsCtrl', function ($scope, RestaurantService, $rootScope, FireService){
+  .controller('AdminRestaurantsCtrl', function ($scope, RestaurantService, $rootScope, FireService, LocationService, CousineService, AdminService){
     $scope.imageSrc = {
       profile : null,
       cover : null
     };
     $scope.restaurantInfo = {
+      id: '',
       restaurantName: '',
       description: '',
       latitude: '',
       longitude: '',
-      mark: '',
-      votes: '',
       priceRange: '',
       imageFileName: '',
       coverFileName: '',
@@ -39,6 +38,38 @@ angular.module('restaurantclientApp')
     $scope.gmap = {
       pos : [43.8563, 18.4131],
       center : [43.8563, 18.4131]
+    };
+    LocationService.getCountries().then(function (res) {
+      var json = res.data;
+      json.unshift({country : 'Country', disabled : true});
+      $scope.countries = json;
+    });
+    $scope.updateCities = function(){
+      var body = {
+        countryId : $scope.restaurantInfo.country
+      };
+      LocationService.getCities(body).then(function (res) {
+        var json = res.data;
+        //json.unshift({country : 'City', disabled : true});
+        $scope.cities = json;
+      });
+    };
+    CousineService.getAllCousines().then(function(res){
+      $scope.cousines = res.data;
+      //$scope.cousines = json.map(obj => obj.name.toString());
+    });
+    $scope.activeCategories=[];
+    $scope.foodType=[];
+    $scope.addCategory=function(id){
+      if($scope.activeCategories.indexOf($scope.cousines[id-1]) === -1){
+        $scope.activeCategories.push($scope.cousines[id-1]);
+        $scope.foodType.push(id);
+      }
+      console.log($scope.foodType);
+    };
+    $scope.deleteActiveCategory=function(index){
+        $scope.activeCategories.splice(index,1);
+        $scope.foodType.splice(index,1);
     };
     $scope.searchRestaurants = function(){
      var data = {
@@ -76,13 +107,32 @@ angular.module('restaurantclientApp')
 
     $scope.dragEnd = function (){
       $scope.gmap.pos = [$scope.map.getCenter().lat(),$scope.map.getCenter().lng()];
-      console.log($scope.gmap);
+      $scope.restaurantInfo.latitude=$scope.map.getCenter().lat();
+      $scope.restaurantInfo.longitude=$scope.map.getCenter().lng();
     };
 
-
+    $scope.edit = function(restaurant){
+      RestaurantService.getExtraDetails(restaurant.id).then(function(res){
+        $scope.restaurantInfo = restaurant;
+        $scope.imageSrc.profile = restaurant.imageFileName;
+        $scope.gmap.pos = [res.longitude, res.latitude];
+        $scope.restaurantInfo.description = res.description;
+        $scope.restaurantInfo.country = res.city.country.id;
+        $scope.restaurantInfo.city = res.city.id;
+        $scope.activeCategories=res.cousines.map(obj => obj.name.toString());
+        $scope.foodType=res.cousines.map(obj => obj.id);
+      });
+      console.log(restaurant);
+    };
     $scope.addRestaurant = function(){
-      FireService.uploadImage($scope.imagesSrc.profile, function(downloadURL){
-        console.log(downloadURL);
+      FireService.uploadImage($scope.imageSrc.profile, function(profileUrl){
+        $scope.restaurantInfo.imageFileName=profileUrl;
+        FireService.uploadImage($scope.imageSrc.cover, function (coverUrl) {
+          $scope.restaurantInfo.coverFileName=coverUrl;
+          AdminService.addRestaurant($scope.restaurantInfo).then(function(res){
+            console.log('dodan!');
+          });
+        });
       });
     };
   })

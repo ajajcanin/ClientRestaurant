@@ -62,18 +62,18 @@
             <div class="row">
               <div class="col-xs-12 col-sm-6 admin-forms">
                 <h3>Logo</h3>
-                <input type="file" ng-model="imagesSrc.profile" id="logoImg" ng-file-select="onFileSelect($files)" accept="image/*">
-                <label for="logoImg" class="upload-img" ng-show="!imagesSrc.profile">
+                <input type="file" ng-model="imageSrc.profile" id="logoImg" ng-file-select="onFileSelect($files)" accept="image/*">
+                <label for="logoImg" class="upload-img" ng-show="!imageSrc.profile">
                   <i class="material-icons" style="font-size: 60px">cloud_upload</i>
                   <h4>Upload logo</h4>
                 </label>
-                <label for="logoImg" class="upload-img" ng-show="imagesSrc.profile">
-                  <img class="uploaded-profile" src="{{imagesSrc.profile}}">
+                <label for="logoImg" class="upload-img" ng-show="imageSrc.profile">
+                  <img class="uploaded-profile" src="{{imageSrc.profile}}">
                 </label>
                 <h3>Name</h3>
-                <input type="text" id="name-restaurant-input">
+                <input type="text" id="name-restaurant-input" ng-model="restaurantInfo.restaurantName">
                 <h3>Description</h3>
-                <textarea name="textarea1"></textarea>
+                <textarea name="textarea1" ng-model="restaurantInfo.description"></textarea>
                 <h3>Location</h3>
                 <div map-lazy-load="https://maps.google.com/maps/api/js" class="map-holder">
                   <ng-map center="{{gmap.center}}" zoom="10"  >
@@ -85,25 +85,27 @@
               <div class="col-xs-12 col-sm-6 admin-forms">
                 <h3>Cover</h3>
                 <input type="file" id="coverImg">
-                <label for="coverImg" class="upload-img">
+                <label for="coverImg" class="upload-img" ng-show="!imageSrc.cover">
                   <i class="material-icons" style="font-size: 60px">cloud_upload</i>
                   <h4>Upload cover</h4>
                 </label>
+                <label for="coverImg" class="upload-img" ng-show="imageSrc.cover">
+                  <img class="uploaded-profile" src="{{imageSrc.cover}}">
+                </label>
                 <h3>Price range</h3>
-                <select name="country" class="fields"
-                        ng-model="info.country" required>
+                <select name="priceRange" class="fields"
+                        ng-model="restaurantInfo.priceRange" ng-options="item.id as item.priceRange disable when item.disabled for item in priceRange" required>
                   <option value="1">Very low</option>
                   <option value="2">Low</option>
                   <option value="3">Medium</option>
                   <option value="4">High</option>
                   <option value="5">Very high</option>
-
                 </select>
                 <h3>Location</h3>
                 <div class="div-fields row">
                   <div class="col-md-7">
                     <select name="country" class="fields"
-                            ng-model="info.country" ng-options="item.id as item.country disable when item.disabled for item in countries"
+                            ng-model="restaurantInfo.country" ng-options="item.id as item.country disable when item.disabled for item in countries"
                             ng-change="updateCities()" required>
                     </select>
                     <span ng-show="form.country.$touched
@@ -112,13 +114,26 @@
 
                   <div class="col-md-5">
                     <select type="text" name="city" class="fields"
-                            ng-model="info.city" ng-options="item as item.city disable when item.disabled for item in cities" required>
+                            ng-model="restaurantInfo.city" ng-options="item.id as item.city disable when item.disabled for item in cities" required>
                     </select>
                     <span ng-show="form.city.$touched
             && form.city.$invalid">City is required</span>
                   </div>
                 </div>
                 <h3>Category</h3>
+                <div class="category-frame">
+                  <ul>
+                    <li ng-repeat="category in activeCategories">
+                      <button class="btn btn-category" ng-click="deleteActiveCategory($index)">
+                        {{category.name}}
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <select name="category" ng-model="activeCategory" ng-options="item.id as item.name disable when item.disabled for item in cousines track by item.name"
+                          ng-change="addCategory(activeCategory)"></select>
+                </div>
               </div>
             </div>
 
@@ -169,7 +184,6 @@
           <button ng-click="$root.show = true" class="btn back-btn">Back</button>
         </form>
       </div>
-</div>
     </uib-tab >
 
     <uib-tab index="3" heading="Categories" active="activeTab" ng-click="$root.show=true">

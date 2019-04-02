@@ -48,6 +48,4 @@ angular.module('restaurantclientApp')
         $scope.cities = json;
       });
     };
-
-
   });
