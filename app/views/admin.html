@@ -1,6 +1,6 @@
 <div class="container">
   <uib-tabset class = "adminTabs" active="activeTab" >
-    <button ng-if="activeTab != 0" id="admin-add-btn" class="btn btn-add admin-btn" ng-click="addNewElement(activeTab)">Add {{btnValue[activeTab-1]}}</button>
+    <button ng-if="activeTab != 0" id="admin-add-btn" class="btn btn-add admin-btn" ng-click="addNewElement(activeTab); $rootScope.show=false">Add {{btnValue[activeTab-1]}}</button>
     <uib-tab index="0" heading="Dashboard" ng-click="$rootScope.show=true">
       <div ng-controller="AdminDashboardCtrl">
         <div class="row">

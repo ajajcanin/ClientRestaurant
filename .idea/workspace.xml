@@ -5,13 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f93b936e-c593-4414-8ea3-469784e99fa6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scripts/controllers/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/controllers/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scripts/services/AdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/services/AdminService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scripts/services/CousineService.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/services/CousineService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scripts/services/LocationService.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/services/LocationService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/styles/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/styles/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/styles/footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/styles/footer.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,7 +35,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="238">
               <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
             </state>
           </provider>
@@ -51,14 +44,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+            <state relative-caret-position="102">
+              <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
               <folding>
+                <element signature="n#uib-tab#0;n#uib-tabset#0;n#div#0;n#!!top" />
                 <element signature="n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" />
                 <element signature="n#style#0;n#i#0;n#label#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#label#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#uib-tab#2;n#uib-tabset#0;n#div#0;n#!!top" />
                 <element signature="n#uib-tab#3;n#uib-tabset#0;n#div#0;n#!!top" />
-                <element signature="n#uib-tab#4;n#uib-tabset#0;n#div#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -77,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/app/styles/search.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="232">
-              <caret line="92" column="21" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+              <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -182,9 +176,9 @@
       <find>current</find>
       <find>.show</find>
       <find>bold</find>
-      <find>city</find>
-      <find>pagi</find>
       <find>butt</find>
+      <find>pagi</find>
+      <find>city</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -397,12 +391,12 @@
       <workItem from="1553712964124" duration="89920000" />
       <workItem from="1554139944372" duration="64814000" />
       <workItem from="1554401687608" duration="5693000" />
-      <workItem from="1554455072090" duration="12896000" />
+      <workItem from="1554455072090" duration="13709000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="743651000" />
+    <option name="totallyTimeSpent" value="744464000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -415,6 +409,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1386" height="775" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.68409586" weight="0.22624435" />
       <window_info id="Structure" order="1" sideWeight="0.5050505" side_tool="true" weight="0.21772939" />
@@ -817,14 +812,7 @@
     <entry file="file://$PROJECT_DIR$/app/styles/search.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
-          <caret line="92" column="21" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -835,16 +823,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        <state relative-caret-position="102">
+          <caret line="32" column="48" lean-forward="true" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
           <folding>
+            <element signature="n#uib-tab#0;n#uib-tabset#0;n#div#0;n#!!top" />
             <element signature="n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" />
             <element signature="n#style#0;n#i#0;n#label#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#label#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#uib-tab#1;n#uib-tabset#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#uib-tab#2;n#uib-tabset#0;n#div#0;n#!!top" />
             <element signature="n#uib-tab#3;n#uib-tabset#0;n#div#0;n#!!top" />
-            <element signature="n#uib-tab#4;n#uib-tabset#0;n#div#0;n#!!top" />
           </folding>
         </state>
       </provider>
