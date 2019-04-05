@@ -31,7 +31,7 @@ angular.module('restaurantclientApp')
       getCitiesPagination: function(data){
         var req = {
           method: 'POST',
-          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/cities',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/citiesPagination',
           data: data,
           header:{
             'Content-Type' : 'application/json'

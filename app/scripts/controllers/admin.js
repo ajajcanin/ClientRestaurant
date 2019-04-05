@@ -13,7 +13,10 @@ angular.module('restaurantclientApp')
     };
 
   })
-  .controller('AdminDashboardCtrl', function ($scope) {
+  .controller('AdminDashboardCtrl', function ($scope, AdminService) {
+    AdminService.getCounters().then(function (res){
+      $scope.counter = res.data;
+    });
 
   })
   .controller('AdminRestaurantsCtrl', function ($scope, RestaurantService, $rootScope, FireService, LocationService, CousineService, AdminService){
@@ -61,8 +64,10 @@ angular.module('restaurantclientApp')
     $scope.activeCategories=[];
     $scope.foodType=[];
     $scope.addCategory=function(id){
-      if($scope.activeCategories.indexOf($scope.cousines[id-1]) === -1){
-        $scope.activeCategories.push($scope.cousines[id-1]);
+      var temp = $scope.cousines.find(obj => obj.id === id);
+      console.log(id);
+      if($scope.activeCategories.map(obj => obj.id).indexOf(id) === -1){
+        $scope.activeCategories.push(temp);
         $scope.foodType.push(id);
       }
       console.log($scope.foodType);
@@ -113,16 +118,21 @@ angular.module('restaurantclientApp')
 
     $scope.edit = function(restaurant){
       RestaurantService.getExtraDetails(restaurant.id).then(function(res){
+        console.log('test');
+        res=res.data;
         $scope.restaurantInfo = restaurant;
         $scope.imageSrc.profile = restaurant.imageFileName;
+        $scope.imageSrc.cover = restaurant.coverFileName;
+        $scope.restaurantInfo.priceRange = restaurant.priceRange;
         $scope.gmap.pos = [res.longitude, res.latitude];
         $scope.restaurantInfo.description = res.description;
         $scope.restaurantInfo.country = res.city.country.id;
+        $scope.updateCities();
         $scope.restaurantInfo.city = res.city.id;
-        $scope.activeCategories=res.cousines.map(obj => obj.name.toString());
+        $scope.activeCategories=res.cousines;
         $scope.foodType=res.cousines.map(obj => obj.id);
       });
-      console.log(restaurant);
+      console.log('hhhhhhh'+restaurant);
     };
     $scope.addRestaurant = function(){
       FireService.uploadImage($scope.imageSrc.profile, function(profileUrl){
@@ -137,7 +147,9 @@ angular.module('restaurantclientApp')
     };
   })
 
-  .controller('AdminLocationCtrl', function ($scope, LocationService) {
+  .controller('AdminLocationCtrl', function ($scope, $rootScope, LocationService) {
+    $scope.currentPage= 1;
+    $rootScope.show = true;
     $scope.location={
       id: '',
       city: '',
@@ -151,14 +163,17 @@ angular.module('restaurantclientApp')
         searchText : '', //scope.search!
       };
 
+      console.log('Lokacije1001');
       LocationService.getCitiesPagination(data).then(function(res){
+        console.log('Lokacije100');
         var json = res.data.locations;
+        console.log('Lokacije' + json);
         var numPages = res.data.numberOfRestaurantPages;
         if(!Object.keys(json).length){
           $scope.notEmpty = false;
         } else {
           $scope.notEmpty = true;
-          $scope.locations = json;
+          $scope.cities = json;
           $scope.numPerPage = 9;
           $scope.numPages = numPages;
           $scope.totalItems = res.data.totalItems;
@@ -166,11 +181,23 @@ angular.module('restaurantclientApp')
         }
       });
     };
+    $scope.searchLocations();
+
+    $scope.pageChanged = function() {
+      $scope.searchLocations();
+    };
+
+    $scope.edit = function(location) {
+      $scope.location.city = location.city;
+      $scope.location.country = location.country;
+    };
   })
-  .controller('AdminCategoriesCtrl', function ($scope, CousineService) {
-    $scope.categories={
+  .controller('AdminCategoriesCtrl', function ($scope, $rootScope, CousineService) {
+    $scope.currentPage = 1;
+    $rootScope.show = false;
+    $scope.cousine={
       id: '',
-      category: ''
+      name: ''
     };
 
     $scope.searchCategories = function(){
@@ -181,13 +208,14 @@ angular.module('restaurantclientApp')
       };
 
       CousineService.getCousinePagination(data).then(function(res){
-        var json = res.data.categories;
+        var json = res.data.cousines;
+        console.log(json);
         var numPages = res.data.numberOfRestaurantPages;
         if(!Object.keys(json).length){
           $scope.notEmpty = false;
         } else {
           $scope.notEmpty = true;
-          $scope.locations = json;
+          $scope.categories = json;
           $scope.numPerPage = 9;
           $scope.numPages = numPages;
           $scope.totalItems = res.data.totalItems;
@@ -195,34 +223,82 @@ angular.module('restaurantclientApp')
         }
       });
     };
-  })
-  .controller('AdminUsersCtrl', function ($scope, AdminService) {
-    $scope.users={
-      id: '',
-      name: '',
-      email: '',
+    $scope.searchCategories();
+    $scope.pageChanged = function() {
+      $scope.searchCategories();
     };
 
-    $scope.searchLocations = function(){
+    $scope.edit = function(cousine) {
+      $scope.cousine.name = cousine.name;
+
+    };
+  })
+  .controller('AdminUsersCtrl', function ($scope, $rootScope, AdminService, LocationService) {
+    LocationService.getCountries().then(function (res) {
+      var json = res.data;
+      json.unshift({country : 'Country', disabled : true});
+      $scope.countries = json;
+    });
+    $scope.updateCities = function(){
+      var body = {
+        countryId : $scope.info.country
+      };
+      LocationService.getCities(body).then(function (res) {
+        var json = res.data;
+        //json.unshift({country : 'City', disabled : true});
+        $scope.cities = json;
+      });
+    };
+    $scope.currentPage = 1;
+    $scope.users = [];
+    $rootScope.show = false;
+    $scope.info = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      country: '',
+      city: '',
+      type: ''
+    };
+//DODATI PASSWORD ?
+    $scope.searchUsers = function(){
       var data = {
         itemsPerPage : 9,
         pageNumber : $scope.currentPage,
         searchText : '', //scope.search!
       };
 
-      AdminService.getUsersPagination(data).then(function(res){
+      AdminService.getUserPagination(data).then(function(res){
         var json = res.data.users;
+        console.log(json);
         var numPages = res.data.numberOfRestaurantPages;
         if(!Object.keys(json).length){
           $scope.notEmpty = false;
         } else {
           $scope.notEmpty = true;
-          $scope.locations = json;
+          $scope.users = json;
           $scope.numPerPage = 9;
           $scope.numPages = numPages;
           $scope.totalItems = res.data.totalItems;
           $scope.maxSize = 5;
         }
       });
+    };
+    $scope.searchUsers();
+    $scope.pageChanged = function() {
+      $scope.searchCategories();
+    };
+
+    $scope.edit = function(user) {
+      $scope.info = {
+        first: user.firstName,
+        last: user.lastName,
+        email: user.email,
+        phone: user.phone,
+      };
+      $scope.info.country = 1;
+      $scope.updateCities();
+      $scope.info.city=2;
     };
   });

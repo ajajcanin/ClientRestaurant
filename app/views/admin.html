@@ -1,40 +1,37 @@
 <div class="container">
   <uib-tabset class = "adminTabs" active="activeTab" >
     <button ng-if="activeTab != 0" id="admin-add-btn" class="btn btn-add admin-btn" ng-click="addNewElement(activeTab)">Add {{btnValue[activeTab-1]}}</button>
-    <uib-tab index="0" heading="Dashboard" ng-click="$root.show=true">
+    <uib-tab index="0" heading="Dashboard" ng-click="$rootScope.show=true">
       <div ng-controller="AdminDashboardCtrl">
-        {{$root.show}}
         <div class="row">
           <div class="col-xs-12 col-sm-4">
-            <div class="adminCards">
+            <div class="adminCards dashboard-cards">
               <h2>{{counter.restaurants}}</h2>
               <h5>Restaurants</h5>
-              <button class="btn btn-add" ng-click="addNewRestaurant()">Add new restaurant</button>
+              <button class="btn btn-add admin-btn" ng-click="addNewElement(1); $rootScope.show=false">Add new restaurant</button>
             </div>
           </div>
           <div class="col-xs-12 col-sm-4">
-            <div class="adminCards">
+            <div class="adminCards dashboard-cards">
               <h2>{{counter.locations}}</h2>
               <h5>Locations</h5>
-              <button class="btn btn-add" ng-click="addNewLocation()">Add new location</button>
+              <button class="btn btn-add admin-btn" ng-click="addNewElement(2); $rootScope.show=false">Add new location</button>
             </div>
           </div>
           <div class="col-xs-12 col-sm-4">
-            <div class="adminCards">
+            <div class="adminCards dashboard-cards">
               <h2>{{counter.users}}</h2>
               <h5>Users</h5>
-              <button class="btn btn-add" ng-click="addNewUser()">Add new user</button>
+              <button class="btn btn-add admin-btn" ng-click="addNewElement(3); $rootScope.show=false">Add new user</button>
             </div>
           </div>
         </div>
       </div>
     </uib-tab>
 
-
-
-    <uib-tab index="1" heading="Restaurants" active="activeTab" ng-click="$root.show=true">
+    <uib-tab index="1" heading="Restaurants" active="activeTab" ng-click="$rootScope.show=true">
       <div ng-controller="AdminRestaurantsCtrl">
-        <div ng-show="$root.show">
+        <div ng-show="$rootScope.show">
           <div class="adminCards">
             <table class ="table table-bordered admin-tables">
               <thead>
@@ -46,7 +43,7 @@
               <tbody>
                 <tr ng-repeat="restaurant in restaurants">
                   <td> {{restaurant.restaurantName}}</td>
-                  <td><i class="material-icons" ng-click="edit(restaurant)">edit</i>  <i class="material-icons" ng-click="delete(restaurant)">delete</i></td>
+                  <td><i class="material-icons" ng-click="edit(restaurant); $rootScope.show=false">edit</i>  <i class="material-icons" ng-click="delete(restaurant)">delete</i></td>
                 </tr>
               </tbody>
             </table>
@@ -57,7 +54,7 @@
             </div>
           </div>
         </div>
-        <div ng-show="!$root.show">
+        <div ng-show="!$rootScope.show">
           <form name="adminAddRestaurant" ng-submit="addRestaurant()" class="shadow-form main-admin-form">
             <div class="row">
               <div class="col-xs-12 col-sm-6 admin-forms">
@@ -94,12 +91,12 @@
                 </label>
                 <h3>Price range</h3>
                 <select name="priceRange" class="fields"
-                        ng-model="restaurantInfo.priceRange" ng-options="item.id as item.priceRange disable when item.disabled for item in priceRange" required>
-                  <option value="1">Very low</option>
-                  <option value="2">Low</option>
-                  <option value="3">Medium</option>
-                  <option value="4">High</option>
-                  <option value="5">Very high</option>
+                        ng-model="restaurantInfo.priceRange" required>
+                  <option ng-value="1">Very low</option>
+                  <option ng-value="2">Low</option>
+                  <option ng-value="3">Medium</option>
+                  <option ng-value="4">High</option>
+                  <option ng-value="5">Very high</option>
                 </select>
                 <h3>Location</h3>
                 <div class="div-fields row">
@@ -138,60 +135,17 @@
             </div>
 
             <input type="submit" class="btn admin-btn proceed-btn" value="Add restaurant">
-            <button ng-click="$root.show = true" class="btn back-btn">Back</button>
+            <button ng-click="$rootScope.show = true" class="btn back-btn">Back</button>
           </form>
         </div>
       </div>
     </uib-tab>
 
-
-    <uib-tab index="2" heading="Locations" active="activeTab" ng-click="$root.show=true">
-      <div ng-show="$root.show">
-        <div class="adminCards">
-          <table class ="table table-bordered admin-tables">
-            <thead>
-            <tr>
-              <th class="col-xs-11">Name</th>
-              <th class="col-xs-1"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="city in cities">
-              <td> {{location.city}}</td>
-              <td><i class="material-icons" ng-click="edit(restaurant)">edit</i>  <i class="material-icons" ng-click="delete(city)">delete</i></td>
-            </tr>
-            </tbody>
-          </table>
-          <div ng-show="notEmpty" class = "pagination-sm pagination-custom" uib-pagination="" ng-model="currentPage"
-               total-items="totalItems"
-               items-per-page="9"
-               ng-change="pageChanged()">
-          </div>
-        </div>
-      </div>
-      <div ng-show="!$root.show">
-        <form name="adminAddLocation" ng-submit="addLocation()" class="shadow-form main-admin-form">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 admin-forms">
-              <input type="text" placeholder="New/existing country name">
-            </div>
-
-            <div class="col-xs-12 col-sm-6 admin-forms">
-              <input type="text" placeholder="New city name">
-            </div>
-          </div>
-          <input type="submit" class="btn admin-btn proceed-btn" value="Add location">
-          <button ng-click="$root.show = true" class="btn back-btn">Back</button>
-        </form>
-      </div>
-    </uib-tab >
-
-    <uib-tab index="3" heading="Categories" active="activeTab" ng-click="$root.show=true">
-      <div ng-controller="AdminRestaurantsCtrl">
-        <div ng-show="show">
-          <!-- DODATI BUTTON-->
+    <uib-tab index="2" heading="Locations" active="activeTab" ng-click="$rootScope.show=true">
+      <div ng-controller="AdminLocationCtrl">
+        <div ng-show="$rootScope.show">
           <div class="adminCards">
-            <table class ="table table-bordered">
+            <table class ="table table-bordered admin-tables">
               <thead>
               <tr>
                 <th class="col-xs-11">Name</th>
@@ -199,39 +153,163 @@
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="location in locations">
-                <td> {{location.name}}</td>
-                <td><i class="material-icons" ng-click="edit(location)">edit</i>  <i class="material-icons" ng-click="delete(location)">delete</i></td>
+              <tr ng-repeat="city in cities">
+                <td> {{city.city}}</td>
+                <td><i class="material-icons" ng-click="edit(city); $rootScope.show=false">edit</i>  <i class="material-icons" ng-click="delete(city)">delete</i></td>
               </tr>
               </tbody>
             </table>
+            <div ng-show="notEmpty" class = "pagination-sm pagination-custom" uib-pagination="" ng-model="currentPage"
+                 total-items="totalItems"
+                 items-per-page="9"
+                 ng-change="pageChanged()">
+            </div>
           </div>
+        </div>
+        <div ng-show="!$rootScope.show">
+          <form name="adminAddLocation" ng-submit="addLocation()" class="shadow-form main-admin-form">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 admin-forms">
+                <input type="text" ng-model="location.city" placeholder="New/existing country name">
+              </div>
+
+              <div class="col-xs-12 col-sm-6 admin-forms">
+                <input type="text" ng-model="location.country" placeholder="New city name">
+              </div>
+            </div>
+            <input type="submit" class="btn admin-btn proceed-btn" value="Add location">
+            <button ng-click="$rootScope.show = true" class="btn back-btn">Back</button>
+          </form>
+        </div>
+      </div>
+    </uib-tab >
+
+    <uib-tab index="3" heading="Categories" active="activeTab" ng-click="$rootScope.show=true">
+      <div ng-controller="AdminCategoriesCtrl">
+        <div ng-show="$rootScope.show">
+          <div class="adminCards">
+            <table class ="table table-bordered admin-tables">
+              <thead>
+              <tr>
+                <th class="col-xs-11">Name</th>
+                <th class="col-xs-1"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="category in categories">
+                <td> {{category.name}}</td>
+                <td><i class="material-icons" ng-click="edit(category); $rootScope.show=false">edit</i>  <i class="material-icons" ng-click="delete(category)">delete</i></td>
+              </tr>
+              </tbody>
+            </table>
+            <div ng-show="notEmpty" class = "pagination-sm pagination-custom" uib-pagination="" ng-model="currentPage"
+                 total-items="totalItems"
+                 items-per-page="9"
+                 ng-change="pageChanged()">
+            </div>
+          </div>
+        </div>
+        <div ng-show="!$rootScope.show">
+          <form name="adminAddCategory" ng-submit="addCategory()" class="shadow-form main-admin-form">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 admin-forms">
+                <input type="text" ng-model="cousine.name" placeholder="New cousine">
+              </div>
+            </div>
+            <input type="submit" class="btn admin-btn proceed-btn" value="Add location">
+            <button ng-click="$rootScope.show = true" class="btn back-btn">Back</button>
+          </form>
         </div>
       </div>
     </uib-tab>
 
-    <uib-tab index="4" heading="Users" active="activeTab" ng-click="$root.show=true">
-      <div ng-controller="AdminRestaurantsCtrl">
-        <div ng-show="show">
+    <uib-tab index="4" heading="Users" active="activeTab" ng-click="$rootScope.show=true">
+      <div ng-controller="AdminUsersCtrl">
+        <div ng-show="$rootScope.show">
           <!-- DODATI BUTTON-->
           <div class="adminCards">
-            <table class ="table table-bordered">
+            <table class ="table table-bordered admin-tables">
               <thead>
               <tr>
-                <th class="col-xs-11">Name</th>
+                <th class="col-xs-5">Name</th>
+                <th class="col-xs-6 th-email">Address</th>
                 <th class="col-xs-1"></th>
               </tr>
               </thead>
               <tbody>
-              <tr ng-repeat="location in locations">
-                <td> {{location.name}}</td>
-                <td><i class="material-icons" ng-click="edit(location)">edit</i>  <i class="material-icons" ng-click="delete(location)">delete</i></td>
+              <tr ng-repeat="user in users">
+                <td> {{user.firstName}} </td>
+                <td class="td-email"> {{user.email}} </td>
+                <td><i class="material-icons" ng-click="edit(user); $rootScope.show=false">edit</i>  <i class="material-icons" ng-click="delete(user)">delete</i></td>
               </tr>
               </tbody>
             </table>
           </div>
         </div>
+        <div ng-show="!$rootScope.show">
+          <form name="adminAddUser" ng-submit="addUser()" class="shadow-form main-admin-form">
+            <div class="row">
+              <div class="div-fields">
+                <input type="text" name="first" class="fields"
+                       id="first" placeholder="First Name" ng-model="info.first" required />
+                <span ng-show="form.first.$touched
+            && form.first.$invalid">First Name is required</span>
+              </div>
+
+              <!--last name-->
+              <div class="div-fields">
+                <input type="text" name="last" class="fields"
+                       name="last" placeholder="Last Name" ng-model="info.last"  required />
+                <span ng-show="form.last.$touched
+            && form.last.$invalid">Last Name is required</span>
+              </div>
+
+
+              <!--email-->
+              <div class="div-fields">
+                <input type="email" name="email" class="fields"
+                       id="email" placeholder="Email" ng-model="info.email" required />
+                <span ng-show="form.email.$touched
+            && form.email.$invalid">Email is not valid</span>
+              </div>
+
+              <!--Phone Number-->
+              <div class="div-fields">
+                <input type="text" name="phone" class="fields"
+                       id="phone" placeholder="Phone Number" ng-model="info.phone" required />
+                <span ng-show="form.phone.$touched
+            && form.phone.$invalid">Phone Number is required</span>
+              </div>
+
+
+
+              <!--country & city -->
+              <div class="div-fields row">
+                <div class="col-md-7">
+                  <select name="country" class="fields"
+                          ng-model="info.country" ng-options="item.id as item.country disable when item.disabled for item in countries"
+                          ng-change="updateCities()" required>
+                  </select>
+                  <span ng-show="form.country.$touched
+            && form.country.$invalid">Country is required</span>
+                </div>
+
+                <div class="col-md-5">
+                  <select type="text" name="city" class="fields"
+                          ng-model="info.city" ng-options="item.id as item.city disable when item.disabled for item in cities" required>
+                  </select>
+                  <span ng-show="form.city.$touched
+            && form.city.$invalid">City is required</span>
+                </div>
+              </div>
+            </div>
+            <input type="submit" class="btn admin-btn proceed-btn" value="Add user">
+            <button ng-click="$rootScope.show = true" class="btn back-btn">Back</button>
+          </form>
+        </div>
       </div>
+      </div>
+
     </uib-tab>
 
 
