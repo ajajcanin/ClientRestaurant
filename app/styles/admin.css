@@ -132,3 +132,14 @@
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
   border-radius: 3px;
 }
+[type="checkbox"]{
+  height:20px;
+  width:20px;
+  float:left;
+  text-align: left;
+}
+#admin-cb{
+  float: right;
+  margin-left: 30px;
+  transform: translateY(5px);
+}

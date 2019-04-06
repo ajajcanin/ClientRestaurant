@@ -14,5 +14,16 @@ angular.module('restaurantclientApp')
         };
         return $http(req);
       },
+      isAdmin: function(data){
+        var req = {
+          method:'POST',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/isAdmin',
+          data: data,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        };
+        return $http(req);
+      },
     };
   });

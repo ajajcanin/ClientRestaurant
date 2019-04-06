@@ -10,6 +10,7 @@ angular.module('restaurantclientApp')
       console.log(tab);
       $scope.activeTab = tab;
       $rootScope.show = false;
+      $rootScope.edit=false;
     };
 
   })
@@ -33,7 +34,8 @@ angular.module('restaurantclientApp')
       priceRange: '',
       imageFileName: '',
       coverFileName: '',
-      foodType: ''
+      foodType: '',
+      'city': ''
     };
     $rootScope.show = true;
     $scope.notEmpty = false;
@@ -131,6 +133,7 @@ angular.module('restaurantclientApp')
         $scope.restaurantInfo.city = res.city.id;
         $scope.activeCategories=res.cousines;
         $scope.foodType=res.cousines.map(obj => obj.id);
+        $rootScope.edit=true;
       });
       console.log('hhhhhhh'+restaurant);
     };
@@ -139,15 +142,33 @@ angular.module('restaurantclientApp')
         $scope.restaurantInfo.imageFileName=profileUrl;
         FireService.uploadImage($scope.imageSrc.cover, function (coverUrl) {
           $scope.restaurantInfo.coverFileName=coverUrl;
-          AdminService.addRestaurant($scope.restaurantInfo).then(function(res){
-            console.log('dodan!');
-          });
+          var data = {
+            id : $scope.restaurantInfo.id,
+            name : $scope.restaurantInfo.restaurantName,
+            priceRange :$scope.restaurantInfo.priceRange,
+            description : $scope.restaurantInfo.description,
+            avatar:$scope.restaurantInfo.imageFileName,
+            cover:$scope.restaurantInfo.coverFileName,
+            longitude:$scope.restaurantInfo.longitude,
+            latitude:$scope.restaurantInfo.latitude,
+            cityId : $scope.restaurantInfo.city,
+            cousines: $scope.restaurantInfo.foodType,
+          };
+          if($rootScope.edit){
+            AdminService.editRestaurant(data).then(function(res){
+              $rootScope.show = true;
+            });
+          } else {
+            AdminService.addRestaurant(data).then(function(res){
+              $rootScope.show = true;
+            });
+          }
         });
       });
     };
   })
 
-  .controller('AdminLocationCtrl', function ($scope, $rootScope, LocationService) {
+  .controller('AdminLocationCtrl', function ($scope, $rootScope, LocationService, AdminService) {
     $scope.currentPage= 1;
     $rootScope.show = true;
     $scope.location={
@@ -190,9 +211,28 @@ angular.module('restaurantclientApp')
     $scope.edit = function(location) {
       $scope.location.city = location.city;
       $scope.location.country = location.country;
+      $rootScope.edit = true;
+    };
+    $scope.addLocation = function(){
+      var data = {
+        id : $scope.location.id,
+        city : $scope.location.city,
+        country : {
+          country : $scope.location.country
+        }
+      };
+      if($rootScope.edit){
+        AdminService.editLocation(data).then(function(res){
+          $rootScope.show = true;
+        });
+      } else {
+        AdminService.addLocation(data).then(function(res){
+          $rootScope.show = true;
+        });
+      }
     };
   })
-  .controller('AdminCategoriesCtrl', function ($scope, $rootScope, CousineService) {
+  .controller('AdminCategoriesCtrl', function ($scope, $rootScope, CousineService, AdminService) {
     $scope.currentPage = 1;
     $rootScope.show = false;
     $scope.cousine={
@@ -230,7 +270,21 @@ angular.module('restaurantclientApp')
 
     $scope.edit = function(cousine) {
       $scope.cousine.name = cousine.name;
-
+      $rootScope.edit = true;
+    };
+    $scope.addCategory = function(){
+      var data = {
+        name : $scope.cousine.name
+      };
+      if($rootScope.edit){
+        AdminService.editCategory(data).then(function(res){
+          $rootScope.show = true;
+        });
+      } else {
+        AdminService.addCategory(data).then(function(res){
+          $rootScope.show = true;
+        });
+      }
     };
   })
   .controller('AdminUsersCtrl', function ($scope, $rootScope, AdminService, LocationService) {
@@ -291,6 +345,7 @@ angular.module('restaurantclientApp')
     };
 
     $scope.edit = function(user) {
+      console.log(user);
       $scope.info = {
         first: user.firstName,
         last: user.lastName,
@@ -300,5 +355,30 @@ angular.module('restaurantclientApp')
       $scope.info.country = 1;
       $scope.updateCities();
       $scope.info.city=2;
+      $rootScope.edit = true;
+    };
+
+    $scope.addUser = function(){
+      var userType = '';
+      if($scope.userType){userType='admin';}
+      else {userType='user';}
+      var data = {
+        firstName: $scope.info.firstName,
+        lastName: $scope.info.lastName,
+        email: $scope.info.email,
+        pass: $scope.info.pass,
+        phone: $scope.info.phone,
+        userType: userType,
+        cityId : $scope.info.city
+      };
+      if($rootScope.edit){
+        AdminService.editUser(data).then(function(res){
+          $rootScope.show = true;
+        });
+      } else {
+        AdminService.addUser(data).then(function(res){
+          $rootScope.show = true;
+        });
+      }
     };
   });

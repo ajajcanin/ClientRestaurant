@@ -1,6 +1,7 @@
 <div class="container">
   <uib-tabset class = "adminTabs" active="activeTab" >
-    <button ng-if="activeTab != 0" id="admin-add-btn" class="btn btn-add admin-btn" ng-click="addNewElement(activeTab); $rootScope.show=false">Add {{btnValue[activeTab-1]}}</button>
+    <button ng-if="activeTab != 0" id="admin-add-btn" class="btn btn-add admin-btn" ng-click="addNewElement(activeTab); $rootScope.show=false;
+      $rootScope.edit=false;">Add {{btnValue[activeTab-1]}}</button>
     <uib-tab index="0" heading="Dashboard" ng-click="$rootScope.show=true">
       <div ng-controller="AdminDashboardCtrl">
         <div class="row">
@@ -301,6 +302,9 @@
                   <span ng-show="form.city.$touched
             && form.city.$invalid">City is required</span>
                 </div>
+              </div>
+              <div class="div-fields">
+                <input type="checkbox" ng-model="userType"> <p id="admin-cb">Admin</p>
               </div>
             </div>
             <input type="submit" class="btn admin-btn proceed-btn" value="Add user">
