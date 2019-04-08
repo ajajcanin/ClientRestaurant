@@ -66,18 +66,20 @@ angular.module('restaurantclientApp')
       } else {
         $scope.findTablesError = false;
         RestaurantService.checkReservationAvailability(data).then(function(res){
-          $scope.tablesLeft = res.data.tablesLeft;
-          $scope.bestTime = res.data.bestTime;
+          $scope.reservations = res.data.reservations;
+          $scope.tablesLeft = res.data.reservations.tables.size();
         }); //sta ako nema uopste stola
       }
     };
 
-    $scope.confirmReservation = function(clickEvent){
+    $scope.confirmReservation = function(times){
       SharedContext.removeData();
       var reservation = {
         numGuests : $scope.reservation.numGuests,
-        time : $scope.bestTime[clickEvent.target.parentElement.id],
-        date : $scope.reservation.date
+        time : times.bestTime,
+        date : $scope.reservation.date,
+        tables : times.tableIds,
+        duration: times.duration
       };
       SharedContext.addData(reservation);
       $window.location.href='#/reservation';

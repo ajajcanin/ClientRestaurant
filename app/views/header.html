@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav nav-custom">
         <li><a href="#/home">Home</a></li>
         <li><a ng-href="#/search">Restaurants</a></li>
-        <li><a ng-href="#/admin" ng-if="$window.localStorage.userType == 'admin'">Admin</a></li>
+        <li><a ng-href="#/admin" ng-if="$root.isAdmin">Admin</a></li>
         <li><a ng-href="#/login" ng-if="!isAuthenticated">Login</a>
           <a ng-href="#/home" ng-click="logout()" ng-if="isAuthenticated">Log Out</a></li>
       </ul>

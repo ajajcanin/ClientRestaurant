@@ -21,11 +21,12 @@ angular.module('restaurantclientApp')
         console.log(res.status);
           $window.localStorage.setItem('token', res.headers('authorization'));
           $window.localStorage.setItem('userInfo', $scope.credentials.email);
-          LoginService.isAdmin($scope.credentials.email).then(function(res){
-            $window.localStorage.setItem('userType', res.data);
-            $window.location.href = '/#/home';
-            authManager.authenticate();
-          });
+        var data = {email : $scope.credentials.email};
+        LoginService.isAdmin(data).then(function(res){
+          $rootScope.isAdmin = res.data.userType === 'admin';
+          $window.location.href = '/#/home';
+          authManager.authenticate();
+        });
       }).catch(function (){
         $scope.error='Email or password is incorrect!';
       });

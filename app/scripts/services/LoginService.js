@@ -17,7 +17,7 @@ angular.module('restaurantclientApp')
       isAdmin: function(data){
         var req = {
           method:'POST',
-          url: 'https://ajdinsrestaurantsapp.herokuapp.com/isAdmin',
+          url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/isAdmin',
           data: data,
           headers: {
             'Content-Type': 'application/json'

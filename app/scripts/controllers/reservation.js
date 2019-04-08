@@ -13,6 +13,7 @@ angular.module('restaurantclientApp')
     };
     $scope.$on('$routeChangeSuccess', function() {
       $scope.reservation = SharedContext.getData();
+      console.log($scope.reservation);
       $scope.restaurant.imageFileName = JSON.parse($window.localStorage.getItem('restaurant')).imageFileName;
       $scope.restaurant.restaurantName = JSON.parse($window.localStorage.getItem('restaurant')).restaurantName;
     });
@@ -22,12 +23,15 @@ angular.module('restaurantclientApp')
         guests : $scope.reservation.numGuests,
         date : $scope.reservation.date,
         time : $scope.reservation.time,
+        tables : $scope.reservation.tables,
+        duration : $scope.reservation.duration,
         user : $window.localStorage.getItem('userInfo'),
         idRestaurant : JSON.parse($window.localStorage.getItem('restaurant')).id
       };
       console.log(data.date.getDay());
-      ReservationService.makeReservation(data).then(function(){
-
+      var token = $window.localStorage.getItem('token');
+      ReservationService.makeReservation(data, token).then(function(){
+        $window.location.href='#/restaurant';
       });
     };
   });

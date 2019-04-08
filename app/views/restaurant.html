@@ -59,9 +59,9 @@
 
                         Select the best time that fits you:
                       </div>
-                      <div class="col-xs-2" ng-repeat="times in bestTime">
+                      <div class="col-xs-2" ng-repeat="times in reservations">
                         <div id="{{$index}}">
-                        <input type="submit" class="reservation-btns" value="{{times}}" ng-click="confirmReservation($event)">
+                        <input type="submit" class="reservation-btns" value="{{times.bestTime}}" ng-click="confirmReservation(times)">
                         </div>
                       </div>
                     </div>
