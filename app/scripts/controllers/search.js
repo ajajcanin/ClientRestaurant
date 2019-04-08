@@ -53,8 +53,8 @@ angular.module('restaurantclientApp')
         guests: $scope.params.guests,
       };
 
-      console.log("filteri: "  + data.filterPrice + " " + data.filterRating + " " + data.filterCousine);
       RestaurantService.getSearchedRestaurants(data).then(function (res){
+        console.log("filteri: " + data);
         json = res.data.restaurants;
         var numPages = res.data.numberOfRestaurantPages;
         if(!Object.keys(json).length){
@@ -71,7 +71,7 @@ angular.module('restaurantclientApp')
           vm.averageRatingDollar = json.map(obj => obj.priceRange);
           $scope.numPerPage = 9;
           $scope.numPages = numPages;
-          $scope.totalItems = 19;//res.data.totalItems;
+          $scope.totalItems = res.data.totalItems;
           $scope.maxSize = 5;
         }
       });
