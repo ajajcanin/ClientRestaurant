@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f93b936e-c593-4414-8ea3-469784e99fa6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scripts/controllers/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/controllers/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/admin.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/app/scripts/services/SharedContext.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -96,7 +94,7 @@
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/admin.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="89">
-              <caret line="144" column="22" lean-forward="true" selection-start-line="144" selection-start-column="22" selection-end-line="144" selection-end-column="22" />
+              <caret line="144" selection-start-line="144" selection-end-line="145" />
             </state>
           </provider>
         </entry>
@@ -399,12 +397,12 @@
       <workItem from="1554139944372" duration="64814000" />
       <workItem from="1554401687608" duration="5693000" />
       <workItem from="1554455072090" duration="37677000" />
-      <workItem from="1554749307244" duration="17684000" />
+      <workItem from="1554749307244" duration="17865000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="786116000" />
+    <option name="totallyTimeSpent" value="786297000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -418,7 +416,7 @@
   <component name="ToolWindowManager">
     <frame x="-4" y="2" width="1386" height="775" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.68409586" visible="true" weight="0.22926094" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.68409586" visible="true" weight="0.22926094" />
       <window_info id="Structure" order="1" sideWeight="0.5050505" side_tool="true" weight="0.21772939" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -436,7 +434,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4992224" visible="true" weight="0.2990654" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4992224" visible="true" weight="0.2990654" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007776" side_tool="true" weight="0.3310811" />
       <window_info anchor="right" id="Coverage" order="0" sideWeight="0.50329673" side_tool="true" weight="0.1785174" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -787,7 +785,7 @@
     <entry file="file://$PROJECT_DIR$/app/scripts/services/SharedContext.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -842,7 +840,7 @@
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
-          <caret line="144" column="22" lean-forward="true" selection-start-line="144" selection-start-column="22" selection-end-line="144" selection-end-column="22" />
+          <caret line="144" selection-start-line="144" selection-end-line="145" />
         </state>
       </provider>
     </entry>
