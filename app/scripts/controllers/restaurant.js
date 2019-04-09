@@ -2,7 +2,7 @@
 
 
 angular.module('restaurantclientApp')
-  .controller('RestaurantCtrl', function ($scope, $window, SharedContext, $uibModal, RestaurantService) {
+  .controller('RestaurantCtrl', function ($scope, $window, SharedContext, $uibModal, RestaurantService, $root) {
     var vm = this;
     var id = null;
     $scope.isCollapsed = true;
@@ -23,11 +23,11 @@ angular.module('restaurantclientApp')
     };
     $scope.$on('$routeChangeSuccess', function(){
       //var json = SharedContext.getData();
-      var reservationInfo = SharedContext.getData();
-      if(reservationInfo.time){
-        $scope.reservation.numGuests = SharedContext.getData().guests;
-        $scope.reservation.time = SharedContext.getData().time;
-        $scope.reservation.guests = SharedContext.getData().guests;
+      var reservationInfo = $root.place;
+      if(reservationInfo!=null){
+        $scope.reservation.numGuests = reservationInfo.guests;
+        $scope.reservation.time = reservationInfo.time;
+        $scope.reservation.date = reservationInfo.date;
       }
       var json = JSON.parse($window.localStorage.getItem('restaurant'));
       id = json.id;

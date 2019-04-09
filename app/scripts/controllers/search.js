@@ -106,7 +106,7 @@ angular.module('restaurantclientApp')
       $window.location.href='#/restaurant';
     };
     $scope.closeAlert = function(){
-      SharedContext.removeData();
+      $root.place = null;
       $window.location.href='#/search';
     };
   });
