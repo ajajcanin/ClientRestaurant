@@ -10,7 +10,7 @@
  * Controller of the restaurantclientApp
  */
 angular.module('restaurantclientApp')
-  .controller('HomeCtrl', function ($scope, RestaurantService, SharedContext, $location, $root) {
+  .controller('HomeCtrl', function ($scope, RestaurantService, SharedContext, $location, $rootScope) {
     $scope.todayDate= new Date();
     $scope.reservation = {
       nameRes: ''
@@ -22,7 +22,7 @@ angular.module('restaurantclientApp')
         date : $scope.reservation.date,
         time : $scope.reservation.time
       };
-      $root.place = place;
+      $rootScope.place = place;
         SharedContext.removeData();
         SharedContext.addData(place);
         $location.path('/search/' + $scope.reservation.nameRes + '/guests/' + $scope.reservation.numGuests +
