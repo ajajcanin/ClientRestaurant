@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f93b936e-c593-4414-8ea3-469784e99fa6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scripts/controllers/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/controllers/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scripts/controllers/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/controllers/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scripts/controllers/restaurant.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scripts/controllers/restaurant.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/restaurant.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/restaurant.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,10 +56,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="182" selection-start-line="8" selection-start-column="182" selection-end-line="8" selection-end-column="182" />
+            <state relative-caret-position="171">
+              <caret line="22" column="75" lean-forward="true" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
               <folding>
-                <element signature="n#div#1;n#!!top" />
                 <element signature="n#div#2;n#!!top" />
                 <element signature="n#div#3;n#!!top" />
               </folding>
@@ -67,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="107" column="35" lean-forward="true" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
+            <state relative-caret-position="235">
+              <caret line="70" column="67" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="70" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -79,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="57" column="86" selection-start-line="57" selection-start-column="80" selection-end-line="57" selection-end-column="86" />
+            <state relative-caret-position="140">
+              <caret line="61" column="70" selection-start-line="61" selection-start-column="70" selection-end-line="61" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -113,19 +112,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/restaurant.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+            <state relative-caret-position="170">
+              <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/restaurant.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+            <state relative-caret-position="96">
+              <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -143,8 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>vm</find>
-      <find>pagin</find>
       <find>rate this</find>
       <find>filter by</find>
       <find>descri</find>
@@ -171,8 +168,10 @@
       <find>pagi</find>
       <find>edit</find>
       <find>butt</find>
-      <find>today</find>
+      <find>clo</find>
       <find>showin</find>
+      <find>today</find>
+      <find>viewR</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -225,13 +224,13 @@
         <option value="$PROJECT_DIR$/app/scripts/controllers/logout.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/header.js" />
         <option value="$PROJECT_DIR$/app/views/header.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/restaurant.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/ReservationService.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/reservation.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/home.js" />
         <option value="$PROJECT_DIR$/app/views/restaurant.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/restaurant.js" />
         <option value="$PROJECT_DIR$/app/views/home.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/search.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/home.js" />
       </list>
     </option>
   </component>
@@ -395,12 +394,12 @@
       <workItem from="1554139944372" duration="64814000" />
       <workItem from="1554401687608" duration="5693000" />
       <workItem from="1554455072090" duration="37677000" />
-      <workItem from="1554749307244" duration="6657000" />
+      <workItem from="1554749307244" duration="10881000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="775089000" />
+    <option name="totallyTimeSpent" value="779313000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -413,8 +412,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="2" width="1386" height="775" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.68409586" visible="true" weight="0.22926094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.68409586" visible="true" weight="0.22926094" />
       <window_info id="Structure" order="1" sideWeight="0.5050505" side_tool="true" weight="0.21772939" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -432,7 +432,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4992224" visible="true" weight="0.2990654" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4992224" visible="true" weight="0.2990654" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007776" side_tool="true" weight="0.3310811" />
       <window_info anchor="right" id="Coverage" order="0" sideWeight="0.50329673" side_tool="true" weight="0.1785174" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -796,13 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" column="42" lean-forward="true" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/restaurant.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -810,36 +803,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/restaurant.js">
+    <entry file="file://$PROJECT_DIR$/app/views/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        <state relative-caret-position="140">
+          <caret line="61" column="70" selection-start-line="61" selection-start-column="70" selection-end-line="61" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="182" selection-start-line="8" selection-start-column="182" selection-end-line="8" selection-end-column="182" />
+        <state relative-caret-position="171">
+          <caret line="22" column="75" lean-forward="true" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
           <folding>
-            <element signature="n#div#1;n#!!top" />
             <element signature="n#div#2;n#!!top" />
             <element signature="n#div#3;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/search.html">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/restaurant.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="57" column="86" selection-start-line="57" selection-start-column="80" selection-end-line="57" selection-end-column="86" />
+        <state relative-caret-position="170">
+          <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="107" column="35" lean-forward="true" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
+        <state relative-caret-position="235">
+          <caret line="70" column="67" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="70" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
         </state>
       </provider>
     </entry>

@@ -19,15 +19,17 @@
 <div class="container random-restaurants-container" ng-controller="RestCtrl as vm">
   <div class="header-home text-center ">Popular for Lunch Today</div>
   <div class="col-md-4 col-sm-6 col-xs-12 text-margin-random-restaurant" ng-repeat="item in restaurants">
-    <div class="random-restaurant-content">
+    <div class="random-restaurant-content" id="{{$index}}">
       <img class="img-rand img-responsive" ng-src="{{item.imageFileName}}">
       <div class = "random-restaurant-name">{{item.restaurantName}}</div><!--item.name/rate/price-->
-      <div class = "random-restaurant-rate">
-        <rating-stars ratings="vm.ratings" average-rating="vm.averageRating[$index]" ratings-position="{{vm.ratingsPosition}}">
-        </rating-stars>
-      </div>
+      <div class="rating-range">
+        <rating-stars ratings="vm.ratings[$index]" average-rating="vm.averageRating[$index]" ratings-position="{{vm.ratingsPosition}}">
+        </rating-stars></div>
+      <div class="dollar-range">
+        <rating-dollars ratings="1" average-rating="vm.averageRatingDollar[$index]" ratings-position="">
+        </rating-dollars></div>
       <div class = "random-restaurant-name search-food-type">{{item.foodType}}</div>
-      <input type="submit" value="Reserve Now">
+      <input type="submit" value="Reserve Now" ng-click="viewRestaurant($event)">
     </div>
       <!--cousines-->
   </div>

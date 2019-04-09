@@ -61,6 +61,7 @@ angular.module('restaurantclientApp')
         hour: $scope.reservation.time,
         idRestaurant: id
       };
+      
       if(!data.people ||  !data.date || !data.hour){
         $scope.findTablesError = true;
       } else {

@@ -30,26 +30,28 @@ angular.module('restaurantclientApp')
 
   })
 
-  .controller('RestCtrl', function ($scope, RestaurantService) {
+  .controller('RestCtrl', function ($scope, RestaurantService, $window) {
 
     var vm = this;
   $scope.$on('$routeChangeSuccess', function(){
     console.log('00Test');
     RestaurantService.getRandomRestaurants().then(function(res){
-      var json = res.data;
-      $scope.restaurants = json.restaurants;
-      if(json.restaurants.votes){
-        vm.ratings = json.restaurants.votes;
-      } else {
-        vm.ratings = 0;
-      }
-      vm.averageRating = json.restaurants.map(obj => obj.marks);
+      var json = res.data.restaurants;
+      $scope.restaurants = json;
+      vm.ratings = json.map(obj => obj.votes.toString());
+      vm.averageRating = json.map(obj => obj.mark);
       vm.ratingsPosition = 'right';
       vm.formData = {
         myRating: 2
       };
+      vm.averageRatingDollar = json.map(obj => obj.priceRange);
       vm.ratingChange = function() {
         console.log('My rating changed to: ' + vm.formData.myRating);
+      };
+
+      $scope.viewRestaurant = function(clickEvent){
+        $window.localStorage.setItem('restaurant', JSON.stringify(json[clickEvent.target.parentElement.id]));
+        $window.location.href='#/restaurant';
       };
 
       //var prices = json.map(obj => obj.priceRange);
