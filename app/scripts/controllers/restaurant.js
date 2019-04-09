@@ -23,6 +23,12 @@ angular.module('restaurantclientApp')
     };
     $scope.$on('$routeChangeSuccess', function(){
       //var json = SharedContext.getData();
+      var reservationInfo = SharedContext.getData();
+      if(reservationInfo.time){
+        $scope.reservation.numGuests = SharedContext.getData().guests;
+        $scope.reservation.time = SharedContext.getData().time;
+        $scope.reservation.guests = SharedContext.getData().guests;
+      }
       var json = JSON.parse($window.localStorage.getItem('restaurant'));
       id = json.id;
       $scope.restaurant=json;
@@ -61,7 +67,7 @@ angular.module('restaurantclientApp')
         hour: $scope.reservation.time,
         idRestaurant: id
       };
-      
+
       if(!data.people ||  !data.date || !data.hour){
         $scope.findTablesError = true;
       } else {
