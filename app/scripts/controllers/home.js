@@ -11,6 +11,7 @@
  */
 angular.module('restaurantclientApp')
   .controller('HomeCtrl', function ($scope, RestaurantService, SharedContext, $location) {
+    $scope.todayDate= new Date();
     $scope.reservation = {
       nameRes: ''
     };

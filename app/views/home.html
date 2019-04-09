@@ -3,12 +3,12 @@
   <div class="content">
     <p>Make a free reservation</p>
     <p>Choose your table from n restaurants near you</p>
-      <form class="form-horizontal form-search" ng-controller="HomeCtrl" ng-submit="search()">
-        <div class="col-sm-4 input-holder guests-div"><i class="material-icons search loop">search</i><input ng-model="reservation.nameRes" type="text" placeholder="Location, Restaurant or Cousine"></div>
-        <div class="col-sm-2 input-holder guests-div"><i class="material-icons search">person</i><input ng-model="reservation.numGuests" type="number" placeholder="Guests"></div>
-        <div class="col-sm-2 input-holder"><md-datepicker class="datepicker" ng-model="reservation.date" md-hide-icons="triangle" md-placeholder="Insert Date"></div>
+      <form class="form-horizontal form-search" ng-controller="HomeCtrl" ng-submit="search()" >
+        <div class="col-sm-4 input-holder guests-div"><i class="material-icons search loop">search</i><input ng-model="reservation.nameRes" type="text" placeholder="Location, Restaurant or Cousine" required></div>
+        <div class="col-sm-2 input-holder guests-div"><i class="material-icons search">person</i><input ng-model="reservation.numGuests" type="number" min="1" placeholder="Guests" required></div>
+        <div class="col-sm-2 input-holder"><md-datepicker class="datepicker" ng-model="reservation.date" md-hide-icons="triangle" md-placeholder="Insert Date" md-min-date="todayDate" required></div>
 
-        <div class="col-sm-2 input-holder"><div class="timepicker-default" uib-timepicker ng-model="reservation.time" hour-step="1" minute-step="30" show-meridian="false" show-spinners="false"></div></div>
+        <div class="col-sm-2 input-holder"><div class="timepicker-default" uib-timepicker ng-model="reservation.time" hour-step="1" minute-step="30" show-meridian="false" show-spinners="false" required></div></div>
         <div class="col-sm-2 input-holder"><input type="submit" value="Find a table"></div>
       </form>
   </div>

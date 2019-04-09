@@ -31,7 +31,7 @@
             <p>Make a free reservation</p>
               <form class="form-horizontal" ng-submit="findTables()">
                 <div class="row">
-                  <div class="col-sm-3 input-holder guests-div"><i class="material-icons search">person</i><input ng-model="reservation.numGuests" type="number" placeholder="Guests" onfocus="isCollapsed=true" required></div>
+                  <div class="col-sm-3 input-holder guests-div"><i class="material-icons search">person</i><input ng-model="reservation.numGuests" type="number" min="1" placeholder="Guests" onfocus="isCollapsed=true" required></div>
                   <div class="col-sm-3 input-holder">
                     <md-datepicker ng-model="reservation.date" md-hide-icons="triangle" md-placeholder="Insert Date" onfocus="isCollapsed=true"
                                    md-open-on-focus="true" md-min-date="todayDate" required></md-datepicker></div>

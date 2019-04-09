@@ -106,5 +106,6 @@ angular.module('restaurantclientApp')
       $window.location.href='#/restaurant';
     };
     $scope.closeAlert = function(){
+      $window.location.href='#/search';
     };
   });
