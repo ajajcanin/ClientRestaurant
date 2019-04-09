@@ -1,6 +1,6 @@
 'use strict';
 angular.module('restaurantclientApp')
-  .controller('SearchCtrl', function ($scope, $window, $routeParams, RestaurantService, CousineService) {
+  .controller('SearchCtrl', function ($scope, $window, $routeParams, RestaurantService, CousineService, SharedContext) {
     $scope.reservation = {
       nameRes : '',
       filter : ''
@@ -54,7 +54,6 @@ angular.module('restaurantclientApp')
       };
 
       RestaurantService.getSearchedRestaurants(data).then(function (res){
-        console.log("filteri: " + data);
         json = res.data.restaurants;
         var numPages = res.data.numberOfRestaurantPages;
         if(!Object.keys(json).length){
@@ -78,10 +77,11 @@ angular.module('restaurantclientApp')
     };
     $scope.$on('$routeChangeSuccess', function(){
       if($routeParams.value){
+        var json = SharedContext.getData();
         $scope.reservation.nameRes = $routeParams.value;
         $scope.params.guests = $routeParams.guests;
-        $scope.params.date = Date.parse($routeParams.date);
-        $scope.params.time = Date.parse($routeParams.time);
+        $scope.params.date = SharedContext.getData().date;
+        $scope.params.time = SharedContext.getData().time;
         $scope.noFilter = true;
 
         $scope.search();

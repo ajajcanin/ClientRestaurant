@@ -82,7 +82,7 @@
 
               <div class="col-xs-12 col-sm-6 admin-forms">
                 <h3>Cover</h3>
-                <input type="file" id="coverImg">
+                <input type="file"  id="coverImg" ng-model="imageSrc.cover" ng-file-select="onFileSelect($files) accept="image/*"">
                 <label for="coverImg" class="upload-img" ng-show="!imageSrc.cover">
                   <i class="material-icons" style="font-size: 60px">cloud_upload</i>
                   <h4>Upload cover</h4>
