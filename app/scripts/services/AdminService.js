@@ -35,7 +35,7 @@ angular.module('restaurantclientApp')
         };
         return $http(req);
       },
-      AddCategory: function (data) {
+      addCategory: function (data) {
         var req = {
           method: 'POST',
           url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/addCategory',
@@ -68,7 +68,7 @@ angular.module('restaurantclientApp')
         };
         return $http(req);
       },
-      AddLocation: function (data) {
+      addLocation: function (data) {
         var req = {
           method: 'POST',
           url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/addLocation',
@@ -101,7 +101,7 @@ angular.module('restaurantclientApp')
         };
         return $http(req);
       },
-      AddUser: function (data) {
+      addUser: function (data) {
         var req = {
           method: 'POST',
           url: 'https://ajdinsrestaurantsapp.herokuapp.com/app/addUser',

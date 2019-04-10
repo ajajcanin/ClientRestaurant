@@ -11,6 +11,10 @@ angular.module('restaurantclientApp')
       $scope.activeTab = tab;
       $rootScope.show = false;
       $rootScope.edit=false;
+      $rootScope.inputRestaurants = '';
+      $rootScope.inputLocations = '';
+      $rootScope.inputCategories = '';
+      $rootScope.inputUsers = '';
     };
 
   })
@@ -69,6 +73,7 @@ angular.module('restaurantclientApp')
       var temp = $scope.cousines.find(obj => obj.id === id);
       console.log(id);
       if($scope.activeCategories.map(obj => obj.id).indexOf(id) === -1){
+        console.log("TESTTTST");
         $scope.activeCategories.push(temp);
         $scope.foodType.push(id);
       }
@@ -78,11 +83,14 @@ angular.module('restaurantclientApp')
         $scope.activeCategories.splice(index,1);
         $scope.foodType.splice(index,1);
     };
-    $scope.searchRestaurants = function(){
+    $rootScope.searchRestaurants = function(){
+      if(!$rootScope.inputRestaurants) {
+        $rootScope.inputRestaurants = '';
+      }
      var data = {
       itemsPerPage : 9,
       pageNumber : $scope.currentPage,
-      searchText : '', //scope.search!
+      searchText : $rootScope.inputRestaurants, //scope.search!
       filterPrice : '',
       filterRating : '',
       filterCousine : '',
@@ -105,11 +113,11 @@ angular.module('restaurantclientApp')
       }
     });
     };
-    $scope.searchRestaurants();
+    $rootScope.searchRestaurants();
 
 
     $scope.pageChanged = function() {
-      $scope.searchRestaurants();
+      $rootScope.searchRestaurants();
     };
 
     $scope.dragEnd = function (){
@@ -126,7 +134,7 @@ angular.module('restaurantclientApp')
         $scope.imageSrc.profile = restaurant.imageFileName;
         $scope.imageSrc.cover = restaurant.coverFileName;
         $scope.restaurantInfo.priceRange = restaurant.priceRange;
-        $scope.gmap.pos = [res.longitude, res.latitude];
+        $scope.gmap.pos = [res.latitude, res.longitude];
         $scope.restaurantInfo.description = res.description;
         $scope.restaurantInfo.country = res.city.country.id;
         $scope.updateCities();
@@ -136,6 +144,13 @@ angular.module('restaurantclientApp')
         $rootScope.edit=true;
       });
       console.log('hhhhhhh'+restaurant);
+    };
+    $scope.delete = function(restaurant){
+      AdminService.deleteRestaurant(restaurant.id).then(function(res){
+        $scope.currentPage= 1;
+        $rootScope.searchRestaurants();
+      });
+
     };
     $scope.addRestaurant = function(){
       FireService.uploadImage($scope.imageSrc.profile, function(profileUrl){
@@ -152,7 +167,7 @@ angular.module('restaurantclientApp')
             longitude:$scope.restaurantInfo.longitude,
             latitude:$scope.restaurantInfo.latitude,
             cityId : $scope.restaurantInfo.city,
-            cousines: $scope.restaurantInfo.foodType,
+            cousines: $scope.foodType,
           };
           if($rootScope.edit){
             AdminService.editRestaurant(data).then(function(res){
@@ -177,11 +192,14 @@ angular.module('restaurantclientApp')
       country: ''
     };
 
-    $scope.searchLocations = function(){
+    $rootScope.searchLocations = function(){
+      if(!$rootScope.inputLocations) {
+        $rootScope.inputLocations = '';
+      }
       var data = {
         itemsPerPage : 9,
         pageNumber : $scope.currentPage,
-        searchText : '', //scope.search!
+        searchText : $rootScope.inputLocations, //scope.search!
       };
 
       console.log('Lokacije1001');
@@ -202,16 +220,23 @@ angular.module('restaurantclientApp')
         }
       });
     };
-    $scope.searchLocations();
+    $rootScope.searchLocations();
 
     $scope.pageChanged = function() {
-      $scope.searchLocations();
+      $rootScope.searchLocations();
     };
 
     $scope.edit = function(location) {
       $scope.location.city = location.city;
       $scope.location.country = location.country;
       $rootScope.edit = true;
+    };
+    $scope.delete = function(location){
+      AdminService.deleteLocation(location.id).then(function(res){
+        $scope.currentPage= 1;
+        $rootScope.searchLocations();
+      });
+
     };
     $scope.addLocation = function(){
       var data = {
@@ -240,11 +265,14 @@ angular.module('restaurantclientApp')
       name: ''
     };
 
-    $scope.searchCategories = function(){
+    $rootScope.searchCategories = function(){
+      if(!$rootScope.inputCategories) {
+        $rootScope.inputCategories = '';
+      }
       var data = {
         itemsPerPage : 9,
         pageNumber : $scope.currentPage,
-        searchText : '', //scope.search!
+        searchText : $rootScope.inputCategories, //scope.search!
       };
 
       CousineService.getCousinePagination(data).then(function(res){
@@ -263,17 +291,23 @@ angular.module('restaurantclientApp')
         }
       });
     };
-    $scope.searchCategories();
+    $rootScope.searchCategories();
     $scope.pageChanged = function() {
-      $scope.searchCategories();
+      $rootScope.searchCategories();
     };
+    $scope.delete = function(cousine){
 
+      AdminService.deleteCategory(cousine.id).then(function(res){
+        $rootScope.searchCategories();
+      });
+    };
     $scope.edit = function(cousine) {
-      $scope.cousine.name = cousine.name;
+      $scope.cousine = cousine;
       $rootScope.edit = true;
     };
     $scope.addCategory = function(){
       var data = {
+        id : $scope.cousine.id,
         name : $scope.cousine.name
       };
       if($rootScope.edit){
@@ -307,8 +341,8 @@ angular.module('restaurantclientApp')
     $scope.users = [];
     $rootScope.show = false;
     $scope.info = {
-      firstName: '',
-      lastName: '',
+      first: '',
+      last: '',
       email: '',
       phone: '',
       country: '',
@@ -316,11 +350,14 @@ angular.module('restaurantclientApp')
       type: ''
     };
 //DODATI PASSWORD ?
-    $scope.searchUsers = function(){
+    if(!$rootScope.inputUsers) {
+      $rootScope.inputUsers = '';
+    }
+    $rootScope.searchUsers = function(){
       var data = {
         itemsPerPage : 9,
         pageNumber : $scope.currentPage,
-        searchText : '', //scope.search!
+        searchText : $rootScope.inputUsers, //scope.search!
       };
 
       AdminService.getUserPagination(data).then(function(res){
@@ -339,22 +376,23 @@ angular.module('restaurantclientApp')
         }
       });
     };
-    $scope.searchUsers();
+    $rootScope.searchUsers();
     $scope.pageChanged = function() {
-      $scope.searchCategories();
+      $rootScope.searchUsers();
     };
 
     $scope.edit = function(user) {
       console.log(user);
       $scope.info = {
+        id : user.id,
         first: user.firstName,
         last: user.lastName,
         email: user.email,
         phone: user.phone,
       };
-      $scope.info.country = 1;
+      $scope.info.country = user.countryId;
       $scope.updateCities();
-      $scope.info.city=2;
+      $scope.info.city=user.cityId;
       $rootScope.edit = true;
     };
 
@@ -363,8 +401,9 @@ angular.module('restaurantclientApp')
       if($scope.userType){userType='admin';}
       else {userType='user';}
       var data = {
-        firstName: $scope.info.firstName,
-        lastName: $scope.info.lastName,
+        id : $scope.info.id,
+        firstName: $scope.info.first,
+        lastName: $scope.info.last,
         email: $scope.info.email,
         pass: $scope.info.pass,
         phone: $scope.info.phone,

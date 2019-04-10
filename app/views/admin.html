@@ -2,6 +2,10 @@
   <uib-tabset class = "adminTabs" active="activeTab" >
     <button ng-if="activeTab != 0" id="admin-add-btn" class="btn btn-add admin-btn" ng-click="addNewElement(activeTab); $rootScope.show=false;
       $rootScope.edit=false;">Add {{btnValue[activeTab-1]}}</button>
+    <input ng-if="activeTab == 1" ng-model="$root.inputRestaurants" class="btn-input-search" ng-keydown="$root.searchRestaurants()" placeholder="Search.. ">
+    <input ng-if="activeTab == 2" ng-model="$root.inputLocations" class="btn-input-search" ng-keydown="$root.searchLocations()" placeholder="Search.. ">
+    <input ng-if="activeTab == 3" ng-model="$root.inputCategories" class="btn-input-search" ng-keydown="$root.searchCategories()" placeholder="Search.. ">
+    <input ng-if="activeTab == 4" ng-model="$root.inputUsers" class="btn-input-search" ng-keydown="$root.searchUsers()" placeholder="Search.. ">
     <uib-tab index="0" heading="Dashboard" ng-click="$rootScope.show=true">
       <div ng-controller="AdminDashboardCtrl">
         <div class="row">
@@ -23,7 +27,7 @@
             <div class="adminCards dashboard-cards">
               <h2>{{counter.users}}</h2>
               <h5>Users</h5>
-              <button class="btn btn-add admin-btn" ng-click="addNewElement(3); $rootScope.show=false">Add new user</button>
+              <button class="btn btn-add admin-btn" ng-click="addNewElement(4); $rootScope.show=false">Add new user</button>
             </div>
           </div>
         </div>
@@ -82,7 +86,7 @@
 
               <div class="col-xs-12 col-sm-6 admin-forms">
                 <h3>Cover</h3>
-                <input type="file"  id="coverImg" ng-model="imageSrc.cover" ng-file-select="onFileSelect($files) accept="image/*"">
+                <input type="file"  id="coverImg" ng-model="imageSrc.cover" ng-file-select="onFileSelect($files)" accept="image/*">
                 <label for="coverImg" class="upload-img" ng-show="!imageSrc.cover">
                   <i class="material-icons" style="font-size: 60px">cloud_upload</i>
                   <h4>Upload cover</h4>
@@ -171,11 +175,11 @@
           <form name="adminAddLocation" ng-submit="addLocation()" class="shadow-form main-admin-form">
             <div class="row">
               <div class="col-xs-12 col-sm-6 admin-forms">
-                <input type="text" ng-model="location.city" placeholder="New/existing country name">
+                <input type="text" ng-model="location.country" placeholder="New/existing country name">
               </div>
 
               <div class="col-xs-12 col-sm-6 admin-forms">
-                <input type="text" ng-model="location.country" placeholder="New city name">
+                <input type="text" ng-model="location.city" placeholder="New city name">
               </div>
             </div>
             <input type="submit" class="btn admin-btn proceed-btn" value="Add location">
@@ -304,10 +308,27 @@
                 </div>
               </div>
               <div class="div-fields">
+                <input type="password" class="fields"
+                       name="pass" id="pass" placeholder="Password" ng-model="info.pass" required />
+                <span ng-show="form.pass.$touched
+            && form.pass.$invalid">Password is required</span>
+              </div>
+
+
+              <!--confirm pass-->
+
+              <div class="div-fields">
+                <input type="password" class="fields"
+                       name="passConf" id="passConf" placeholder="Confirm Password" ng-model="info.passConf" required />
+                <span ng-show="form.passConf.$touched
+            && info.passConf!=info.pass" class="password-match">Your password and confirmation password do not match.</span>
+              </div>
+              <div class="div-fields">
                 <input type="checkbox" ng-model="userType"> <p id="admin-cb">Admin</p>
               </div>
+
             </div>
-            <input type="submit" class="btn admin-btn proceed-btn" value="Add user">
+            <input type="submit" class="btn admin-btn proceed-btn" value="Add user" ng-disabled="form.$invalid">
             <button ng-click="$rootScope.show = true" class="btn back-btn">Back</button>
           </form>
         </div>

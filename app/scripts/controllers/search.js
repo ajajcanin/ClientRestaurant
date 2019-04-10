@@ -1,6 +1,6 @@
 'use strict';
 angular.module('restaurantclientApp')
-  .controller('SearchCtrl', function ($scope, $window, $routeParams, RestaurantService, CousineService, SharedContext) {
+  .controller('SearchCtrl', function ($scope, $window, $routeParams, RestaurantService, CousineService, SharedContext, $rootScope) {
     $scope.reservation = {
       nameRes : '',
       filter : ''
@@ -106,7 +106,7 @@ angular.module('restaurantclientApp')
       $window.location.href='#/restaurant';
     };
     $scope.closeAlert = function(){
-      $root.place = null;
+      $rootScope.place = null;
       $window.location.href='#/search';
     };
   });

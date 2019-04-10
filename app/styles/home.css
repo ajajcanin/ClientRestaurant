@@ -8,6 +8,7 @@ body, html{
 body{
   font-family: "San Francisco";
   color: #131D24;
+  display : grid;
 }
 .image-background{
   background: linear-gradient( rgba(0, 0, 15, 0.7), rgba(0, 0, 15, 0.7) ), url('../images/homeFront.jpg') no-repeat center center;
